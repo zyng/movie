@@ -8,7 +8,7 @@
 
     &__logo {
         position: absolute;
-        left: $marginHeaderSide;
+        left: $contentMargin;
         display: flex;
 
 
@@ -83,7 +83,7 @@
             }
         }
         .profile  {
-            padding: 0 $marginHeaderSide;
+            padding: 0 $contentMargin;
             background-color: #15a4fa;
             height: 45px;
             display: flex;

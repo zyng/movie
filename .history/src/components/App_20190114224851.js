@@ -5,15 +5,11 @@ import Navigation from './Navigation/Navigation';
 
 
 class App extends Component {
-
-
   render() {
     return (
       <>
         <Header />
-
         <Navigation />
-
       </>
     );
   }

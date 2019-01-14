@@ -12,7 +12,10 @@ class App extends Component {
       <>
         <Header />
 
-        <Navigation />
+        <div className="container-fluid">
+          <Navigation />
+          <p>asdjaklskdas</p>
+        </div>
 
       </>
     );

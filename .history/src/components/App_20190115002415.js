@@ -12,7 +12,10 @@ class App extends Component {
       <>
         <Header />
 
-        <Navigation />
+        <div className="container">
+          <Navigation />
+          <p style={{ divStyle }}>asdjaklskdas</p>
+        </div>
 
       </>
     );

@@ -5,15 +5,16 @@ import Navigation from './Navigation/Navigation';
 
 
 class App extends Component {
-
-
+  const style = {
+    width: "100%",
+    backgroundColor: "red',
+  }
   render() {
     return (
       <>
         <Header />
-
         <Navigation />
-
+        <p style={{}}>asdjaklskdas</p>
       </>
     );
   }

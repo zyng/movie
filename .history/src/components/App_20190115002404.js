@@ -11,9 +11,8 @@ class App extends Component {
     return (
       <>
         <Header />
-
         <Navigation />
-
+        <p style={{ divStyle }}>asdjaklskdas</p>
       </>
     );
   }
