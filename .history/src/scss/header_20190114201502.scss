@@ -1,0 +1,70 @@
+.header {
+    $self: &;
+    display: flex;
+    height: 45px;
+    background-color: $headerBG;
+    align-items: center;
+
+
+    &__logo {
+        position: absolute;
+        left: $marginHeaderSide;
+        display: flex;
+
+        div {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+
+        #{$self}__logo--red {
+            background-color: #e76847;
+        }
+        #{$self}__logo--yellow {
+            background-color: #fabf00;
+        }
+        #{$self}__logo--green {
+            background-color: #52bea6;
+        }
+    }
+
+    &__title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        i {
+            margin-right: 5px;
+
+            &:before {
+                font-size: $fontSize;
+            }
+        }
+    }
+
+
+    &__nav {
+        position: absolute;
+        right: $marginHeaderSide;
+        display: flex;
+
+        a {
+            color: $textColor;
+            text-decoration: none;
+        }
+        .profile a {
+            display: flex;
+
+        }
+
+        & > div {
+            margin-right: 15px;
+        }
+    }
+
+
+}

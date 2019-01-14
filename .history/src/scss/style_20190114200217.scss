@@ -1,0 +1,12 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+
+@import 'header';
+
+
+body {
+    color: $mainColor;
+    font-family: $mainFont;
+}

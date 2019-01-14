@@ -1,0 +1,22 @@
+.header {
+    $self = &;
+    display: flex;
+
+    &__logo {
+        div {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+
+            #{$self}--red {
+                background-color: #e76847;
+            }
+            #{$self}--yellow {
+                background-color: #e76847;
+            }
+            #{$self}--green {
+                background-color: #e76847;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+
+@import 'variables';
+@import 'mixins';
+
+
+@import 'header';
+
+
+body {
+    color: #78829d;
+    font-family: $mainFont;
+}

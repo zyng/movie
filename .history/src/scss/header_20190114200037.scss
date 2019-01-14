@@ -1,0 +1,54 @@
+.header {
+    $self: &;
+    display: flex;
+
+
+    &__logo {
+        position: absolute;
+        left: 10px;
+        display: flex;
+
+        div {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+
+        #{$self}__logo--red {
+            background-color: #e76847;
+        }
+        #{$self}__logo--yellow {
+            background-color: #fabf00;
+        }
+        #{$self}__logo--green {
+            background-color: #52bea6;
+        }
+    }
+
+    &__title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+                i {
+            margin-right: 5px;
+        }
+    }
+
+
+    &__nav {
+        position: absolute;
+        right: 10px;
+        display: flex;
+
+
+        .profile a {
+            display: flex;
+        }
+    }
+
+
+}

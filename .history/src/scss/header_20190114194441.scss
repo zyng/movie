@@ -1,0 +1,30 @@
+.header {
+    $self: &;
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+        display: flex;
+
+        div {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+
+        
+        .header__logo--red {
+            background-color: #e76847;
+        }
+        .header__logo--yellow {
+            background-color: #fabf00;
+        }
+        .header__logo--green {
+            background-color: #52bea6;
+        }
+    }
+}
