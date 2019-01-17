@@ -1,0 +1,18 @@
+.main {
+    $self: &;
+
+    &__content {
+        width: 100%;
+    }
+
+    &__header {
+        background-color: #eef1f7;
+
+        #{$self}__title {
+            font-size: 22px;
+            line-height: 26px;
+            color: #444c63;
+        }
+    }
+}
+

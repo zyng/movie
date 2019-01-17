@@ -1,0 +1,13 @@
+.main {
+    $self: &;
+
+    &__content {
+        width: 100%;
+    }
+
+    &__header {
+        background-color: #eef1f7;
+        width: 100%;
+    }
+}
+
