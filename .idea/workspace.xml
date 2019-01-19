@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94fee76e-4523-4baa-a180-539fb038c0f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190114224851.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115001934.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002002.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002018.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002032.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002037.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002053.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002139.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002200.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002211.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002243.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002255.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002323.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002404.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002415.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002421.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002429.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002438.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115002508.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115190338.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190115190417.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190116231956.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190116232137.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190116234816.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/App_20190116234827.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Header/Header_20190114204450.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Header/Header_20190117005336.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Header/Header_20190117005339.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116232036.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116232101.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116232107.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116232116.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116232225.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116233711.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116233721.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116233734.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116233838.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234128.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234226.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234449.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234540.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234630.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234726.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234759.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234835.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234851.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116234855.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116235001.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190116235049.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000018.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000107.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000119.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000142.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000209.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000801.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000935.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117000939.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117002738.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117002920.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117002941.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003007.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003020.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003039.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003308.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003446.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003458.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003542.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117003607.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117004615.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117005739.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117005747.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117005819.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117010322.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117010645.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117010713.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011325.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011517.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011531.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011537.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011547.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011618.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117011953.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117012035.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117012112.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117012349.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117013243.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117013255.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117013511.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117014834.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117015100.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117015113.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117015429.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117015433.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117020503.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117020812.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117020936.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117021200.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117021536.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022116.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022133.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022209.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022227.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022244.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022257.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022306.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022317.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022324.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022338.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022349.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022354.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022358.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022431.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022436.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022442.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022445.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022448.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022452.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022456.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022550.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022558.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022603.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022621.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022714.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117022721.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117023003.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117023124.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117023213.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117023334.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117025253.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117025306.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117025327.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117025333.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Main/Main_20190117025422.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190114235805.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117012423.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117012823.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117012838.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117012850.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117012859.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117013114.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/Navigation/Navigation_20190117014850.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117012739.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117012755.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117012811.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117012814.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117012823.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117013018.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117013053.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117013056.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117013153.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/components/PersonalCategory_20190117013214.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190115001216.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117003832.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004023.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004108.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004140.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004228.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004346.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004426.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004446.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004454.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004607.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004818.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117004913.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117005120.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117011653.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117011703.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/_mixins_20190117011709.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190114235453.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117025937.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117025939.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030028.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030041.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030048.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030112.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030155.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030202.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030222.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030234.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030322.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030332.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030350.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030432.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030451.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030458.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030519.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030534.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030541.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030607.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030619.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030621.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030642.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030651.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030658.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/header_20190117030707.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116232017.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234630.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234645.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234656.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234726.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234913.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234935.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234939.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234941.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116234955.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235009.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235017.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235019.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235036.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235049.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235053.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235100.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235109.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235117.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235239.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235251.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235259.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235332.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235351.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235416.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235424.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235432.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235514.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235620.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235651.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235701.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235712.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235742.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235831.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235840.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235858.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235910.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235920.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190116235930.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000251.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000406.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000418.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000501.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000507.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000515.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000536.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000552.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000601.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000612.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000623.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000659.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000709.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000713.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000716.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000721.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000816.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000850.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000857.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000901.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000905.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000919.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000926.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117000928.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001011.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001017.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001020.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001054.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001111.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001112.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001115.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001146.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001226.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001238.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001246.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001249.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001256.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001305.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001337.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001402.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001418.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001454.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001538.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001615.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001616.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001702.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001710.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001719.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001734.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001751.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001759.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001807.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001818.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117001820.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002022.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002032.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002038.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002046.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002108.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002142.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002157.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002203.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002408.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117002641.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117003146.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117003152.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117003237.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117003253.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004056.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004700.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004710.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004743.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004814.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004818.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004827.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004852.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117004857.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005120.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005152.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005155.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005205.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005208.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005210.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005213.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005226.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005355.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005458.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117005945.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010006.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010156.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010200.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010316.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010319.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010332.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010419.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010444.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010502.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010512.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010515.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010542.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010545.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010547.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010552.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010723.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010726.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010742.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010818.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010844.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010849.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010913.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010925.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010930.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010938.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117010942.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011007.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011123.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011131.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011145.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011148.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011207.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011211.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011214.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011217.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011229.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011325.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011328.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011358.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011404.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011410.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011415.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011437.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011640.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011723.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011729.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011737.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011824.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011827.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117011831.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012453.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012508.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012510.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012538.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012543.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012553.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012558.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012630.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012646.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012649.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117012755.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117014118.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117014211.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117014221.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117014232.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015148.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015154.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015203.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015259.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015529.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015552.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015700.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015710.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015718.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015724.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015728.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015743.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015801.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015814.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015825.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015835.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015836.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015848.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015904.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015915.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015930.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015942.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117015950.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020012.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020028.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020032.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020039.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020112.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020118.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020137.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020146.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020152.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020158.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020211.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020227.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020320.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020333.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020346.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020405.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020412.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020441.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020518.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020528.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020545.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020554.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020633.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020706.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020709.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020711.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117020900.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021003.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021227.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021235.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021240.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021243.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021307.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021338.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021410.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021418.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021427.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021434.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021443.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021456.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021613.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021620.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021635.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021713.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021731.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021746.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021758.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021808.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021827.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021900.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021918.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117021933.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022744.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022759.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022814.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022821.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022836.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022847.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022858.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117022904.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023020.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023031.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023444.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023504.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023512.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023518.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023533.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023604.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023621.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023633.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023642.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023700.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023833.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117023919.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024006.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024017.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024028.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024058.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024104.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024114.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024136.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024217.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024256.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024310.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024326.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024335.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024408.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024414.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024446.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024505.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024533.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024537.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024538.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024621.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024631.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024635.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024757.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024835.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024857.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024902.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024906.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024916.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024923.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117024943.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025049.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025106.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025123.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025129.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025140.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025154.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025208.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025552.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025601.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025621.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025643.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025649.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025838.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025853.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025901.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/main_20190117025903.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190115001418.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117013436.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117013441.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117013444.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117013540.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117014920.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117025911.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117025914.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/navigation_20190117025930.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013529.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013549.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013659.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013714.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013745.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013801.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013840.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013854.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013937.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117013953.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014032.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014041.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014051.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014252.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014253.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014308.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014326.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014348.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014354.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014358.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014415.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014424.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014440.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014507.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014513.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014633.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014647.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014731.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014745.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/personalCategory_20190117014826.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190114225520.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190115002449.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190115002502.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190116232012.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190116234525.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190117013622.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.history/src/scss/style_20190117014910.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/main.scss" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/indexx.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="245" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/scss/main.scss" />
+        <option value="$PROJECT_DIR$/src/components/App.js" />
+        <option value="$PROJECT_DIR$/src/css/style.css" />
+        <option value="$PROJECT_DIR$/public/indexx.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupnpm">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="movie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="F:\Michal\pulpit\Projekty\React\movie\node_modules\eslint" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="F:\Michal\pulpit\Projekty\React\movie\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94fee76e-4523-4baa-a180-539fb038c0f3" name="Default Changelist" comment="" />
+      <created>1547840320776</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547840320776</updated>
+      <workItem from="1547840329223" duration="426000" />
+      <workItem from="1547840858276" duration="811000" />
+      <workItem from="1547842259866" duration="371000" />
+      <workItem from="1547842647341" duration="751000" />
+      <workItem from="1547843841775" duration="1764000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4123000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17281349" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/scss/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="278" selection-start-line="278" selection-end-line="278" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/indexx.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="245" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -56,6 +56,8 @@ class MainContent extends Component {
                                         />
                                     </div>
 
+
+
                                 </div>
                             </div>
                             <div className="movie__description">
