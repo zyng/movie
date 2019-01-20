@@ -165,7 +165,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .movie__content { position: relative; overflow: hidden; }
 
-.movie__content img { width: 100%; height: 400px; -o-object-fit: cover; object-fit: cover; }
+.movie__content img { width: 100%; -o-object-fit: contain; object-fit: contain; }
 
 .movie__content .movie__rate { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; position: absolute; bottom: 10%; left: 50%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); width: 100%; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
@@ -173,13 +173,13 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .movie__content:hover .movie__actions { display: block; }
 
-.movie__content:hover .movie__action a { -webkit-animation: entry .6s; animation: entry .6s; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+.movie__content:hover .movie__action a { -webkit-animation: entry .3s; animation: entry .3s; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 
-.movie__content:hover .movie__action:nth-child(2) a { -webkit-animation-delay: .2s; animation-delay: .2s; }
+.movie__content:hover .movie__action:nth-child(2) a { -webkit-animation-delay: .1s; animation-delay: .1s; }
 
-.movie__content:hover .movie__action:nth-child(3) a { -webkit-animation-delay: .4s; animation-delay: .4s; }
+.movie__content:hover .movie__action:nth-child(3) a { -webkit-animation-delay: .2s; animation-delay: .2s; }
 
-.movie__content:hover .movie__action:nth-child(4) a { -webkit-animation-delay: .6s; animation-delay: .6s; }
+.movie__content:hover .movie__action:nth-child(4) a { -webkit-animation-delay: .3s; animation-delay: .3s; }
 
 .movie__content .movie__actions { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: none; }
 
@@ -230,41 +230,3 @@ a { color: #78829d; }
 a:hover { color: #78829d; text-decoration: none; }
 
 main { display: -webkit-box; display: -ms-flexbox; display: flex; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
