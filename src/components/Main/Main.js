@@ -6,99 +6,137 @@ class MainContent extends Component {
 
     state = {
         movies: [],
+        page: 1,
+        type: this.props.type,
+        action: this.props.action,
+        currentMovieId: '',
+        isLoading: false,
+        inputSearchMovie: '',
     }
-
 
 
     componentDidMount() {
+        this.loadMovies();
 
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=ae60b48c0c9fb756e036cdeb7bc07360&page=1')
-            .then(response => response.json())
-            .then(data => {
-                const movies = data.results;
-                // console.log(movies);
-                Promise.all(movies.map(movie => fetch(
-                    `https://api.themoviedb.org/3/movie/${movie.id}?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
-                )))
-                    .then(resp => Promise.all(resp.map(r => r.json())))
-                    .then(result => {
+        window.onscroll = () => {
 
-                        const moviesWithPage = result.map((data, i) => {
-                            // const movie = Object.assign(movies[i], {
-                            //     genres: data.genres.name,
-                            //     homepage: data.homepage
-                            // });
-                            // return movie;
-                            const movie = movies[i];
-                            movie.genres = data.genres.map(genre => genre.name)
-                            movie.homepage = data.homepage;
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
 
-                            return movie;
-                        });
-                        this.setState({
-                            movies: moviesWithPage
-                        });
-                    });
-            })
+                if (!this.state.isLoading) {
+                    this.loadNextPage(this.state.type, this.state.page, this.state.currentMovieId);
+                }
+            }
+        };
     }
 
+    loadMovies = (type = "popular", page = 1, id = '', inputValue = '') => {
+        const promise = this.loadJson(type, page, id, inputValue);
 
-    /*     componentDidMount() {
+        promise.then(data => {
+            const movies = data.results;
+            Promise.all(movies.map(movie => fetch(
+                `https://api.themoviedb.org/3/movie/${movie.id}?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
+            )))
+                .then(resp => Promise.all(resp.map(r => r.json())))
+                .then(result => {
 
-            const movies = this.fetchMovies();
-            console.log(movies);
-            movies.then((movies) => { this.setState({ movies }); });
+                    const moviesWithPageAndGenres = result.map((data, i) => {
+                        // const movie = Object.assign(movies[i], {
+                        //     genres: data.genres.name,
+                        //     homepage: data.homepage
+                        // });
+                        // return movie;
 
-        } */
-    /*    async fetchMovies() {
-           const response = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=ae60b48c0c9fb756e036cdeb7bc07360&page=1');
-           const data = await response.json();
+                        const movie = movies[i];
+                        movie.genres = data.genres.map(genre => genre.name)
+                        movie.homepage = data.homepage;
 
-           // const movies = data.results;
-           // console.log(movies);
+                        return movie;
+                    });
 
-           // return await Promise.all(data.results.map(async function (movie) {
-           //     const response = await fetch('https://api.themoviedb.org/3/movie/' + movie.id + '?api_key=ae60b48c0c9fb756e036cdeb7bc07360');
-           //     const data = await response.json();
-           //     movie.genres = data.genres;
-           //     movie.homepage = data.homepage;
-           //     return data.results;
-           // }))
+                    if (this.state.action === "overwrite") {
+                        this.setState({
+                            movies: moviesWithPageAndGenres,
+                            action: this.props.action,
+                            type: type,
+                            currentMovieId: id,
+                            page: 1,
+                            isLoading: true
+                        });
+                    } else if (this.state.action === "load") {
+                        const moviesNewList = this.state.movies.concat(moviesWithPageAndGenres);
+                        // console.log(moviesNewList);
+                        this.setState((state) => ({
+                            movies: moviesNewList,
+                            action: this.props.action,
+                            type: type,
+                            page: state.page + 1,
+                            isLoading: false
+                        }));
+                    }
 
-           // for (const movie of movies) {
-           //     const response = await fetch('https://api.themoviedb.org/3/movie/' + movie.id + '?api_key=ae60b48c0c9fb756e036cdeb7bc07360');
-           //     const data = await response.json();
-           //     movie.genres = data.genres;
-           //     movie.homepage = data.homepage;
-           // }
-           const movies = data.results;
+                })
 
-           movies.map(async function (movie) {
-               const response = await fetch('https://api.themoviedb.org/3/movie/' + movie.id + '?api_key=ae60b48c0c9fb756e036cdeb7bc07360');
-               const data = await response.json();
-               movie.genres = "aada";
-               movie.homepage = "sjfsdos";
+        }).catch(error => console.log(error));
+    }
 
-               return movie;
-           })
-           // this.setState({ movies });
-           // console.log(movies);
-           return await Promise.all(movies);
-       } */
+    loadJson = (type = "popular", page = 1, id = '', inputValue = '') => {
+        console.log(type, page, id)
 
-    /*    moviePageAndGenres(id, element) {
-             fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=ae60b48c0c9fb756e036cdeb7bc07360')
+        if (inputValue !== '') {
+            console.log('0');
+            return fetch(`https://api.themoviedb.org/3/search/movie?api_key=ae60b48c0c9fb756e036cdeb7bc07360&query=${inputValue}`)
                 .then(response => response.json())
-                .then(data => {
-                    element.genres = data.genres;
-                    element.homepage = data.homepage;
-                });
-        } */
+        }
+        else if ((type === "" || type === "single") && id === '') {
+            console.log('1');
+            return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ae60b48c0c9fb756e036cdeb7bc07360`)
+                .then(response => response.json())
+        }
+        else if (id !== '') {
+            console.log('2');
+            return fetch(`https://api.themoviedb.org/3/movie/${id}/${type}?api_key=ae60b48c0c9fb756e036cdeb7bc07360&page=${page}`)
+                .then(response => response.json())
+        } else {
+            console.log('3');
+            return fetch(`https://api.themoviedb.org/3/movie/${type}?api_key=ae60b48c0c9fb756e036cdeb7bc07360&page=${page}`)
+                .then(response => response.json())
+        }
+    }
 
+    loadSingleMovie = () => {
+        const promise = this.loadJson("single");
 
+        promise.then(data => {
+            this.setState({ movies: data });
+        })
+    }
+
+    loadNewMovies = (type, page, id) => {
+        this.setState({ action: "overwrite" });
+        this.loadMovies(type, page, id);
+    }
+    loadNextPage = (type, page, id) => {
+        this.setState({ isLoading: true });
+        this.loadMovies(type, page, id);
+
+    }
+
+    handleInput = (e) => {
+        this.setState({
+            inputSearchMovie: e.target.value
+        });
+
+        this.searchMovie(e.target.value);
+
+    }
+
+    searchMovie = (inputValue) => {
+        this.setState({ action: "overwrite" });
+        this.loadMovies("", 1, "", inputValue)
+    }
 
     render() {
-
         const movies = this.state.movies.map(movie =>
             <Movie
                 genres={movie.genres}
@@ -107,15 +145,17 @@ class MainContent extends Component {
                 title={movie.title}
                 poster={movie.poster_path}
                 rating={movie.vote_average}
+                similar={() => this.loadNewMovies("similar", 1, movie.id)}
             />
         )
+
 
         return (
             <section className="main__content">
 
 
                 <header className="main__header">
-                    <div className="main__title">Browse Available Books</div>
+                    <div className="main__title">{this.state.type === "similar" ? '20 Similar' : 'Browse Available'} Movies</div>
                     <div className="main__actions-bar">
                         <ul className="main__filters">
                             <li className="active">All Movies</li>
@@ -124,17 +164,14 @@ class MainContent extends Component {
                             <li>Free Movies</li>
                         </ul>
                         <label htmlFor="search-movie">
-                            <input type="text" id="search-movie" placeholder="Enter keywords..." />
+                            <input onBlur={this.handleInput} type="text" id="search-movie" placeholder="Enter keywords..." />
                             <i className="fa fa-search"></i>
                         </label>
                     </div>
                 </header>
 
                 <div className="movies">
-
                     {movies}
-
-
                 </div>
 
 

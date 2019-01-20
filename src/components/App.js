@@ -16,7 +16,7 @@ class App extends Component {
 
         <main>
           <Navigation />
-          <MainContent />
+          <MainContent action="load" type="popular" />
         </main>
 
       </>

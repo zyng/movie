@@ -3,6 +3,7 @@
 
     &__content {
         width: 100%;
+        margin-left: 350px;
     }
 
     &__header {
@@ -168,7 +169,7 @@
                     display: flex;
                     flex-direction: column;
                 }
-                #{$self}__goto {
+                #{$self}__btn {
                     position: absolute;
                     top: 60%;
                     left: 50%;
@@ -185,7 +186,14 @@
                         background-color: #fff;
                         color: #2f364a;
                     }
+                    &.movie__btn--goto {
+                        top: 60%;
+                     }
+                    &.movie__btn--similar {
+                        top: 70%;
+                    }
                 }
+
             }
 
             #{$self}__action {
@@ -221,6 +229,7 @@
                     transition: .3s all;
                     white-space: nowrap;
                     font-weight: 500;
+                    font-size: 14px;
                 }
             }
 

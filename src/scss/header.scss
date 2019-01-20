@@ -1,9 +1,13 @@
 .header {
     $self: &;
     display: flex;
-    height: 45px;
+    height: $headerHeight;
     background-color: $headerBG;
     align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
 
 
     &__logo {

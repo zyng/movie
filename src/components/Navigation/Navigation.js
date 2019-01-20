@@ -17,9 +17,9 @@ class Navigation extends Component {
 
                 <div className="menu__personal-categories">
                     <a href="/">Must watch titles</a>
-                    <a href="/">Best of</a>
-                    <a href="/">Classic</a>
-                    <a href="/">Black List</a>
+                    <a href="/">Favourites titles</a>
+                    <a href="/">Watched titles</a>
+                    <a href="/">Maybe later titles</a>
                 </div>
 
                 <div className="menu__history">
