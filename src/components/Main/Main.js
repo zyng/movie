@@ -11,7 +11,6 @@ class MainContent extends Component {
         action: this.props.action,
         currentMovieId: '',
         isLoading: false,
-        inputSearchMovie: '',
     }
 
 
@@ -23,6 +22,7 @@ class MainContent extends Component {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
 
                 if (!this.state.isLoading) {
+                    this.setState({ action: "load" });
                     this.loadNextPage(this.state.type, this.state.page, this.state.currentMovieId);
                 }
             }
@@ -57,11 +57,10 @@ class MainContent extends Component {
                     if (this.state.action === "overwrite") {
                         this.setState({
                             movies: moviesWithPageAndGenres,
-                            action: this.props.action,
                             type: type,
                             currentMovieId: id,
                             page: 1,
-                            isLoading: true
+                            isLoading: false
                         });
                     } else if (this.state.action === "load") {
                         const moviesNewList = this.state.movies.concat(moviesWithPageAndGenres);
@@ -123,18 +122,16 @@ class MainContent extends Component {
     }
 
     handleInput = (e) => {
-        this.setState({
-            inputSearchMovie: e.target.value
-        });
 
-        this.searchMovie(e.target.value);
+        const inputSearchMovie = e.target.value;
+        this.loadMovies("", 1, "", inputSearchMovie)
 
     }
 
-    searchMovie = (inputValue) => {
-        this.setState({ action: "overwrite" });
-        this.loadMovies("", 1, "", inputValue)
-    }
+    /*   searchMovie = (inputValue) => {
+          this.setState({ action: "overwrite" });
+          this.loadMovies("", 1, "", inputValue)
+      } */
 
     render() {
         const movies = this.state.movies.map(movie =>
@@ -164,7 +161,7 @@ class MainContent extends Component {
                             <li>Free Movies</li>
                         </ul>
                         <label htmlFor="search-movie">
-                            <input onBlur={this.handleInput} type="text" id="search-movie" placeholder="Enter keywords..." />
+                            <input onChange={this.handleInput} type="text" id="search-movie" placeholder="Enter keywords..." />
                             <i className="fa fa-search"></i>
                         </label>
                     </div>

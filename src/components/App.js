@@ -16,7 +16,7 @@ class App extends Component {
 
         <main>
           <Navigation />
-          <MainContent action="load" type="popular" />
+          <MainContent action="overwrite" type="popular" />
         </main>
 
       </>
