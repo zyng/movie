@@ -13,10 +13,9 @@ class App extends Component {
     return (
       <>
         <Header />
-
         <main>
           <Navigation />
-          <MainContent action="overwrite" type="popular" />
+          <MainContent action="overwrite" page={1} type="popular" />
         </main>
 
       </>

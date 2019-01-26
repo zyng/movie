@@ -1,7 +1,7 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings';
 
-const Movie = ({ title, poster, rating, homepage, genres, similar }) => {
+const Movie = ({ title, poster, rating, homepage, genres, similar, similarResult }) => {
 
     const genresFormatted = genres.join(`, `);
     return (
@@ -16,7 +16,7 @@ const Movie = ({ title, poster, rating, homepage, genres, similar }) => {
                         <div className="movie__action"><a href="/" > </a><span>Add to Maybe later</span></div>
                     </div>
                     {homepage && <a href={homepage} className='movie__btn movie__btn--goto'>Check Movie</a>}
-                    {similar && <button onClick={similar} className='movie__btn movie__btn--similar'>Show Similar</button>}
+                    {similarResult && <button onClick={similar} className='movie__btn movie__btn--similar'>Show Similar</button>}
                     <div className="movie__rate">
                         <span>Your rating:</span>
                         <StarRatings
