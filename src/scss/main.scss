@@ -44,6 +44,9 @@
                     &.active, &:hover {
                         cursor: pointer;
                         background-color: #97b3ce;
+
+                    }
+                    &.active a, &:hover a {
                         color: #fff;
                     }
                 }
@@ -203,6 +206,7 @@
                 display: flex;
                 position: relative;
 
+
                 &:nth-child(1) a { background-color: #e64c66;}
                 &:nth-child(2) a { background-color: #ffab00;}
                 &:nth-child(3) a { background-color: #00bfdd;}
@@ -231,6 +235,14 @@
                     font-weight: 500;
                     font-size: 14px;
                 }
+
+                &.active span {
+                    font-weight: 700;
+                }
+                &:nth-child(1).active span { color: #e64c66;}
+                &:nth-child(3).active span { color: #00bfdd;}
+                &:nth-child(2).active span { color: #ffab00;}
+                &:nth-child(4).active span { color: #7874cf;}
             }
 
             &:hover {
@@ -275,6 +287,36 @@
             font-size: 30px;
             margin-right: 10px;
             color: #f2795a;
+        }
+    }
+
+    .scrollToTop {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        height: 60px;
+        width: 60px;
+        background-color: $menuBG;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        z-index: 4;
+        transition: all .3s;
+        cursor: pointer;
+
+        i {
+            font-size: 30px;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            box-shadow: 0 0 13px 4px rgba(0,0,0,.6);
         }
     }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Movie from './Movie';
-// import $ from 'jquery';
 import * as movieApi from "../helpers/movieApi";
 
 class MainContent extends Component {
@@ -14,10 +14,12 @@ class MainContent extends Component {
         isLoading: false,
     }
 
+    componentDidMount() {
+        this.loadMovies();
 
-    async componentDidMount() {
-        this.loadMovies("popular", 1);
-
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
         window.onscroll = () => {
 
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
@@ -34,29 +36,24 @@ class MainContent extends Component {
         };
     }
 
+
+
+
     loadMovies = (type = "popular", page = 1, id = '', inputValue = '') => {
 
         let promiseMovies;
 
         if (inputValue) {
-            console.log('input')
             promiseMovies = movieApi.getMoviesQuery(inputValue);
         } else if (type === "similar" && id) {
-            console.log('similar', this.state.page)
             promiseMovies = movieApi.getSimilarMovies(id, this.state.page);
-        } else if (type && page || type) {
-            console.log('getAll')
+        } else if ((type && page) || type) {
             promiseMovies = movieApi.getAllMovies(type, page);
         } else {
-            console.log('getAllPopular')
             promiseMovies = movieApi.getAllMovies("popular", 1);
         }
 
-        console.log(promiseMovies)
-
-
         promiseMovies.then(data => {
-            // console.log(data);
             const movies = data.results;
             Promise.all(movies.map(movie => fetch(
                 `https://api.themoviedb.org/3/movie/${movie.id}?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
@@ -112,14 +109,6 @@ class MainContent extends Component {
         })
     }
 
-    loadSingleMovie = (id) => {
-        const promise = movieApi.getMovie(id);
-
-        promise.then(data => {
-            this.setState({ movies: data });
-        })
-    }
-
     loadNewMovies = (type, page, id) => {
         this.setState({ action: "overwrite" });
         this.loadMovies(type, page, id);
@@ -127,46 +116,20 @@ class MainContent extends Component {
     loadNextPage = (type, page, id) => {
         this.setState({ isLoading: true });
         this.loadMovies(type, page, id);
+    }
 
+    changeTypeMovies = (e, type) => {
+        e.preventDefault();
+        this.loadMovies(type, 1);
     }
 
     handleInput = (e) => {
         const inputSearchMovie = e.target.value;
         const inputFormatted = inputSearchMovie.replace(/ /g, '+');
         this.loadMovies("", 1, "", inputFormatted)
-
-    }
-
-    handleSessionId = () => {
-        var data = {
-            movie_id: 12133,
-            title: "asdasdfff",
-            homepage: "http://sadssda.com",
-            poster_path: "/rfgrerg.jpg",
-            similarResult: "123",
-            vote_average: "5.5",
-            genres: "Comedy"
-        };
-        console.log(data);
-
-        movieApi.addToMustWatchMovies(data);
-
-        /*      $.ajax({
-                 url: 'https://searchmoviesdatabase.herokuapp.com/api/must-watch-movies',
-                 method: "post",
-                 data: data,
-                 success: function (data) {
-                     console.log(data); // this is good
-                 },
-                 error: function (error) {
-                     console.log(error);
-                 }
-             }); */
-
     }
 
     render() {
-        // console.log(this.state.movies);
         const movies = this.state.movies.map(movie => {
 
             if (movie.poster_path && movie.title && movie.vote_average) {
@@ -174,28 +137,27 @@ class MainContent extends Component {
                     genres={movie.genres}
                     homepage={movie.homepage}
                     key={movie.id}
+                    id={movie.id}
                     title={movie.title}
                     poster={movie.poster_path}
                     rating={movie.vote_average}
                     similarResult={movie.similarResult}
                     similar={() => this.loadNewMovies("similar", 1, movie.id)}
+                    addToCollection={this.addToCollection}
                 />
             }
         })
 
-
         return (
             <section className="main__content">
-
-                <button onClick={this.handleSessionId}>Create List</button>
                 <header className="main__header">
                     <div className="main__title">{this.state.type === "similar" ? 'Similar' : 'Browse Available'} Movies</div>
                     <div className="main__actions-bar">
                         <ul className="main__filters">
-                            <li className="active">All Movies</li>
-                            <li>Most Recent</li>
-                            <li>Most Popular</li>
-                            <li>Free Movies</li>
+                            <li onClick={(e) => this.changeTypeMovies(e, 'popular')} className="active"><a href="">Popular Movies</a></li>
+                            <li onClick={(e) => this.changeTypeMovies(e, 'top_rated')}><a href="">Top Rated Movies</a></li>
+                            <li onClick={(e) => this.changeTypeMovies(e, 'now_playing')} ><a href="">Now Playing Movies</a></li>
+                            <li onClick={(e) => this.changeTypeMovies(e, 'upcoming')}><a href="">Upcoming Movies</a></li>
                         </ul>
                         <label htmlFor="search-movie">
                             <input onChange={this.handleInput} type="text" id="search-movie" placeholder="Enter keywords..." />
@@ -207,9 +169,6 @@ class MainContent extends Component {
                 <div className="movies">
                     {movies}
                 </div>
-
-
-
             </section>
 
         );

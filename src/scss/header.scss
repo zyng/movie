@@ -5,7 +5,7 @@
     background-color: $headerBG;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 4;
     width: 100%;
     top: 0;
 
@@ -20,7 +20,6 @@
             width: 10px;
             height: 10px;
             border-radius: 5px;
-            animation: jump .6s infinite;
 
             &:not(:last-child) {
                 margin-right: 5px;
@@ -134,15 +133,3 @@
 
 }
 
-
-@keyframes jump {
-        0% {
-            transform:  translateY(0);
-        }
-        50% {
-            transform:  translateY(-10px);
-        }
-        100% {
-            transform:  translateY(0);
-        }
-}

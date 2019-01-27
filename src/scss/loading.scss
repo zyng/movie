@@ -1,0 +1,55 @@
+.loading__logo {
+        position: absolute;
+        left: $contentMargin;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 3;
+        background: rgba(0,0,0,.7);
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
+        &.active {
+            display: flex;
+        }
+
+        div {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            animation: jump .6s infinite;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+
+        .loading__logo--red {
+            background-color: #e76847;
+        }
+        .loading__logo--yellow {
+            background-color: #fabf00;
+            animation-delay: .1s
+        }
+        .loading__logo--green {
+            background-color: #52bea6;
+            animation-delay: .2s
+        }
+    }
+
+
+@keyframes jump {
+        0% {
+            transform:  translateY(0);
+        }
+        50% {
+            transform:  translateY(-10px);
+        }
+        100% {
+            transform:  translateY(0);
+        }
+}

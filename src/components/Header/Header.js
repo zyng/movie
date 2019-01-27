@@ -14,6 +14,7 @@ class Header extends Component {
                     <div className="header__logo--yellow"></div>
                     <div className="header__logo--green"></div>
                 </a>
+
                 <div className="header__title">
                     <i className="fa fa-film"></i>
                     <span>MyMovieApp</span>

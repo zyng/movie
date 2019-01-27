@@ -2,7 +2,7 @@ import { movieApiUrl } from "./routing";
 import * as api from "./api";
 
 const mustWatchMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/must-watch-movies";
-const favoriteMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/favorite-movies";
+const favouriteMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/favourite-movies";
 const watchedMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/watched-movies";
 const maybeLaterMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/maybe-later-movies";
 
@@ -27,8 +27,8 @@ export const addToMustWatchMovies = (data) =>
     api.post(mustWatchMoviesUrl, data)
 
 
-export const addToFavoriteMovies = (data) =>
-    api.post(favoriteMoviesUrl, data)
+export const addToFavouriteMovies = (data) =>
+    api.post(favouriteMoviesUrl, data)
 
 
 export const addToWatchedMovies = (data) =>
