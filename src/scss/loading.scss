@@ -13,6 +13,10 @@
         align-items: center;
         display: none;
 
+        &.page{
+            top: 40vh;
+            background: transparent;
+        }
         &.active {
             display: flex;
         }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, NavLink } from "react-router-dom";
 
 class Navigation extends Component {
 
@@ -14,13 +14,14 @@ class Navigation extends Component {
                     <a href="/" className="active"><i className="fa fa-search"></i>Browse</a>
                     <a href="/"><i className="fa fa-history"></i>History</a>
                 </nav>
-
-                <div className="menu__personal-categories">
-                    <a href="/">Must watch titles</a>
-                    <a href="/">Favourites titles</a>
-                    <a href="/">Watched titles</a>
-                    <a href="/">Maybe later titles</a>
-                </div>
+                <Router>
+                    <div className="menu__personal-categories">
+                        <NavLink to='/must-watch' activeClassName="active">Must watch titles</NavLink>
+                        <NavLink to='/favourite' activeClassName="active">Favourites titles</NavLink>
+                        <NavLink to='/watched' activeClassName="active">Watched titles</NavLink>
+                        <NavLink to='/maybe-later' activeClassName="active">Maybe later titles</NavLink>
+                    </div>
+                </Router>
 
                 <div className="menu__history">
                     <div className="history__notification">

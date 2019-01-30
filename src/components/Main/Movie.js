@@ -20,38 +20,35 @@ class Movie extends Component {
         watched: "Add to Watched",
         maybeLater: "Add to Maybe Later"
     }
+
     addToCollection = (e, type, movie) => {
         e.preventDefault();
         switch (type) {
             case "mustWatch":
-                console.log(movie);
                 if (!this.state.addedToMustWatch) {
                     this.setState({ savingProccess: true });
-                    movieApi.addToMustWatchMovies(movie)
+                    movieApi.addToMovieCollection('mustWatch', movie)
                         .then(() => this.setState({ savingProccess: false, addedToMustWatch: true }))
                 }
                 break;
             case "favourite":
-                console.log(movie);
                 if (!this.state.addedToFavourite) {
                     this.setState({ savingProccess: true });
-                    movieApi.addToFavouriteMovies(movie)
+                    movieApi.addToMovieCollection('favourite', movie)
                         .then(() => this.setState({ savingProccess: false, addedToFavourite: true }))
                 }
                 break;
             case "watched":
-                console.log(movie);
                 if (!this.state.addedToWatched) {
                     this.setState({ savingProccess: true });
-                    movieApi.addToWatchedMovies(movie)
+                    movieApi.addToMovieCollection('watched', movie)
                         .then(() => this.setState({ savingProccess: false, addedToWatched: true }))
                 }
                 break;
             case "maybeLater":
-                console.log(movie);
                 if (!this.state.addedToMaybeLater) {
                     this.setState({ savingProccess: true });
-                    movieApi.addToMaybeLaterMovies(movie)
+                    movieApi.addToMovieCollection('maybeLater', movie)
                         .then(() => this.setState({ savingProccess: false, addedToMaybeLater: true }))
                 }
                 break;
@@ -69,7 +66,7 @@ class Movie extends Component {
     render() {
         const { id, title, poster, rating, homepage, genres, similar, similarResult, watched, maybeLater, favourite, mustWatch } = this.props;
         const { savingProccess, addedToMustWatch, addedToFavourite, addedToWatched, addedToMaybeLater } = this.state;
-        const genresFormatted = genres.join(`, `);
+        const genresFormatted = Array.isArray(genres) ? genres.join(`, `) : genres;
         const movieObj = {
             movie_id: id,
             title: title,
