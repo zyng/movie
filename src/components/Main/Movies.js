@@ -179,7 +179,10 @@ class Movies extends Component {
                     movies: moviesWithoutRemoved
                 });
             })
-            .then(() => movieApi.removeRating(id))
+            .then(() => {
+                if (this.state.type === "watched")
+                    movieApi.removeRating(id)
+            })
     }
 
     render() {
