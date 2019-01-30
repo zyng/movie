@@ -12,12 +12,18 @@ class Movies extends Component {
         currentMovieId: '',
         readMoreMovies: false,
         isLoading: false,
+        isUserList: false,
     }
-    collection = false;
 
     componentDidMount() {
+        const page = this.props.match.params.id
+        let type = page || 'popular'
 
-        let type = this.props.match.params.id || 'popular'
+        if (type === 'must-watch' || type === "favourite" || type === "watched" || type === "maybe-later") {
+            this.setState({ isUserList: true });
+        } else {
+            this.setState({ isUserList: false });
+        }
 
         this.setState({ isLoading: true });
         this.loadMovies(type);
@@ -29,7 +35,7 @@ class Movies extends Component {
 
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
 
-                if (!this.state.readMoreMovies) {
+                if (!this.state.isUserList && !this.state.readMoreMovies) {
                     const nextPage = this.state.page + 1;
                     this.setState({
                         action: "load",
@@ -44,12 +50,8 @@ class Movies extends Component {
     loadMovies = (type = "popular", page = 1, id = '', inputValue = '') => {
         let promiseMovies;
 
-
         if (type === 'must-watch' || type === "favourite" || type === "watched" || type === "maybe-later") {
-            this.collection = true;
             promiseMovies = movieApi.showUserMovieCollection(type)
-            promiseMovies.then(data => this.setState({ movies: data, isLoading: false })).catch(error => console.log(error))
-
         } else if (inputValue) {
             promiseMovies = movieApi.getMoviesQuery(inputValue);
         } else if (type === "similar" && id) {
@@ -61,63 +63,62 @@ class Movies extends Component {
         }
 
 
-        if (!this.collection) {
-            promiseMovies.then(data => {
-                const movies = data.results;
-                Promise.all(movies.map(movie => fetch(
-                    `https://api.themoviedb.org/3/movie/${movie.id}?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
-                )))
-                    .then(resp => Promise.all(resp.map(r => r.json())))
-                    .then(result => {
+        promiseMovies.then(data => {
+            const movies = data.results || data.items;
+            Promise.all(movies.map(movie => fetch(
+                `https://api.themoviedb.org/3/movie/${movie.id}?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
+            )))
+                .then(resp => Promise.all(resp.map(r => r.json())))
+                .then(result => {
 
-                        const moviesWithPageAndGenres = result.map((data, i) => {
+                    const moviesWithPageAndGenres = result.map((data, i) => {
 
-                            const movie = movies[i];
-                            movie.genres = data.genres ? data.genres.map(genre => genre.name) : [];
-                            movie.homepage = data.homepage;
+                        const movie = movies[i];
+                        movie.genres = data.genres ? data.genres.map(genre => genre.name) : [];
+                        movie.homepage = data.homepage;
 
-                            return movie;
-                        });
+                        return movie;
+                    });
 
-                        return moviesWithPageAndGenres;
+                    return moviesWithPageAndGenres;
 
-                    })
-                    .then(result => {
-                        Promise.all(result.map(movie => fetch(
-                            `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
-                        )))
-                            .then(resp => Promise.all(resp.map(r => r.json())))
-                            .then(result => {
+                })
+                .then(result => {
+                    Promise.all(result.map(movie => fetch(
+                        `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
+                    )))
+                        .then(resp => Promise.all(resp.map(r => r.json())))
+                        .then(result => {
 
-                                const moviesWithSimilarResult = result.map((data, i) => {
-                                    const movie = movies[i];
-                                    movie.similarResult = data.total_results
-                                    return movie
-                                })
-
-                                if (this.state.action === "overwrite") {
-                                    this.setState({
-                                        movies: moviesWithSimilarResult,
-                                        type: type,
-                                        currentMovieId: id,
-                                        page: 1,
-                                        readMoreMovies: false,
-                                        isLoading: false
-                                    });
-                                } else if (this.state.action === "load") {
-                                    const moviesNewList = this.state.movies.concat(moviesWithSimilarResult);
-                                    this.setState((state) => ({
-                                        movies: moviesNewList,
-                                        action: this.props.action,
-                                        type: type,
-                                        readMoreMovies: false,
-                                        isLoading: false
-                                    }));
-                                }
+                            const moviesWithSimilarResult = result.map((data, i) => {
+                                const movie = movies[i];
+                                movie.similarResult = data.total_results
+                                return movie
                             })
-                    })
-            })
-        }
+
+                            if (this.state.action === "overwrite") {
+                                this.setState({
+                                    movies: moviesWithSimilarResult,
+                                    type: type,
+                                    currentMovieId: id,
+                                    page: 1,
+                                    readMoreMovies: false,
+                                    isLoading: false
+                                });
+                            } else if (this.state.action === "load") {
+                                const moviesNewList = this.state.movies.concat(moviesWithSimilarResult);
+                                this.setState((state) => ({
+                                    movies: moviesNewList,
+                                    action: this.props.action,
+                                    type: type,
+                                    readMoreMovies: false,
+                                    isLoading: false
+                                }));
+                            }
+                        })
+                })
+        })
+
 
     }
 
@@ -141,8 +142,19 @@ class Movies extends Component {
         this.loadMovies("", 1, "", inputFormatted)
     }
 
-    render() {
 
+    removeMovie = (collection, id) => {
+        movieApi.removeFromMovieCollection(collection, id)
+            .then(() => {
+                const moviesWithoutRemoved = this.state.movies.filter(movie => movie.id !== id)
+
+                this.setState({
+                    movies: moviesWithoutRemoved
+                });
+            })
+    }
+
+    render() {
         const movies = this.state.movies.map(movie => {
             if (movie.poster_path && movie.title && movie.vote_average) {
                 return (<Movie
@@ -155,12 +167,14 @@ class Movies extends Component {
                     rating={movie.vote_average}
                     similarResult={movie.similarResult}
                     similar={() => this.loadNewMovies("similar", 1, movie.id)}
+                    actualSearchedCollection={this.props.match.params.id}
+                    removeMovieFromCollection={this.removeMovie}
                 />)
             }
         })
         return (
             <div className="movies" >
-                {(this.state.isLoading && <Loading isActive page />) || movies}
+                {(this.state.isLoading && <Loading isActive page />) || (movies.length > 0 ? movies : "No movies in collection.")}
             </div>
         )
 

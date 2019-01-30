@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Header from './Header/Header';
 import Navigation from './Navigation/Navigation';
 import MainContent from './Main/Main';
-// import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 
 class App extends Component {
@@ -32,9 +32,12 @@ class App extends Component {
       <>
         <Header />
         <main>
-
-          <Navigation />
-          <MainContent />
+          <Router>
+            <>
+              <Navigation />
+              <MainContent />
+            </>
+          </Router>
 
         </main>
 

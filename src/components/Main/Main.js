@@ -1,70 +1,75 @@
 import React, { Component } from 'react';
 import Movies from './Movies';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
+import $ from 'jquery'
 
-const routes = [
-    {
-        path: "/",
-    },
-    {
-        path: "/:id",
-    },
-];
+
 
 class MainContent extends Component {
 
     state = {
-        type: 'popular'
+        type: 'popular',
     }
 
+    routes = [
+        {
+            path: "/",
+        },
+        {
+            path: "/:id",
+        },
+    ];
     changeTypeMovies = (type) => {
         this.setState({ type: type });
+    }
+
+    createList = () => {
+
+        fetch('https://api.themoviedb.org/3/list/104224/add_item?api_key=ae60b48c0c9fb756e036cdeb7bc07360&session_id=1c9c64e55f08ecdb3d95d688e85862d1373616db&media_id=555', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
     }
 
     render() {
         return (
             <section className="main__content">
-                <Router>
-                    <>
-                        <header className="main__header">
-                            <div className="main__title">{this.state.type === "similar" ? 'Similar' : 'Browse Available'} Movies</div>
-                            <div className="main__actions-bar">
-
-                                <ul className="main__filters">
-                                    <li onClick={() => this.changeTypeMovies('popular')} >
-                                        <NavLink exact to="/popular" activeClassName="active"><span>Popular Movies</span></NavLink>
-                                    </li>
-                                    <li onClick={() => this.changeTypeMovies('top_rated')} >
-                                        <NavLink exact to="/top_rated" activeClassName="active"><span>Top Rated Movies</span></NavLink>
-                                    </li>
-                                    <li onClick={() => this.changeTypeMovies('now_playing')}  >
-                                        <NavLink exact to="/now_playing" activeClassName="active"><span >Now Playing Movies</span></NavLink>
-                                    </li>
-                                    <li onClick={() => this.changeTypeMovies('upcoming')} >
-                                        <NavLink exact to="/upcoming" activeClassName="active"><span>Upcoming Movies</span></NavLink>
-                                    </li>
-                                    <li onClick={() => this.changeTypeMovies('must-watch')} >
-                                        <NavLink exact to="/must-watch" activeClassName="active"><span>Must-watch</span></NavLink>
-                                    </li>
-                                </ul>
-
-                                <label htmlFor="search-movie">
-                                    <input onChange={this.handleInput} type="text" id="search-movie" placeholder="Enter keywords..." />
-                                    <i className="fa fa-search"></i>
-                                </label>
-                            </div>
-                        </header>
-
-                        {routes.map((route, index) => (
+                <>
+                    <header className="main__header">
+                        <div className="main__title">{this.state.type === "similar" ? 'Similar' : 'Browse Available'} Movies</div>
+                        <div className="main__actions-bar">
+                            <ul className="main__filters">
+                                <li onClick={() => this.changeTypeMovies('popular')} >
+                                    <NavLink exact strict to="/popular" activeClassName="active"><span>Popular Movies</span></NavLink>
+                                </li>
+                                <li onClick={() => this.changeTypeMovies('top_rated')} >
+                                    <NavLink exact to="/top_rated" activeClassName="active"><span>Top Rated Movies</span></NavLink>
+                                </li>
+                                <li onClick={() => this.changeTypeMovies('now_playing')}  >
+                                    <NavLink exact to="/now_playing" activeClassName="active"><span >Now Playing Movies</span></NavLink>
+                                </li>
+                                <li onClick={() => this.changeTypeMovies('upcoming')} >
+                                    <NavLink exact to="/upcoming" activeClassName="active"><span>Upcoming Movies</span></NavLink>
+                                </li>
+                            </ul>
+                            <label htmlFor="search-movie">
+                                <input onChange={this.handleInput} type="text" id="search-movie" placeholder="Enter keywords..." />
+                                <i className="fa fa-search"></i>
+                            </label>
+                        </div>
+                    </header>
+                    <Switch>
+                        {this.routes.map((route, index) => (
                             <Route
                                 key={index}
                                 path={route.path}
-                                exact={true}
+                                strict
+                                exact
                                 component={(props) => <Movies {...props} type={this.state.type} />}
                             />
                         ))}
-                    </>
-                </Router>
+                    </Switch>
+                </>
             </section>
 
         );

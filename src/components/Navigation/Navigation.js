@@ -14,14 +14,13 @@ class Navigation extends Component {
                     <a href="/" className="active"><i className="fa fa-search"></i>Browse</a>
                     <a href="/"><i className="fa fa-history"></i>History</a>
                 </nav>
-                <Router>
-                    <div className="menu__personal-categories">
-                        <NavLink to='/must-watch' activeClassName="active">Must watch titles</NavLink>
-                        <NavLink to='/favourite' activeClassName="active">Favourites titles</NavLink>
-                        <NavLink to='/watched' activeClassName="active">Watched titles</NavLink>
-                        <NavLink to='/maybe-later' activeClassName="active">Maybe later titles</NavLink>
-                    </div>
-                </Router>
+
+                <div className="menu__personal-categories">
+                    <NavLink to='/must-watch' activeClassName="active">Must watch titles</NavLink>
+                    <NavLink to='/favourite' activeClassName="active">Favourites titles</NavLink>
+                    <NavLink to='/watched' activeClassName="active">Watched titles</NavLink>
+                    <NavLink to='/maybe-later' activeClassName="active">Maybe later titles</NavLink>
+                </div>
 
                 <div className="menu__history">
                     <div className="history__notification">

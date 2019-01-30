@@ -13,8 +13,11 @@ export const getMovie = (id) =>
 export const getMoviesQuery = (text, page) =>
     api.get(movieApiUrl("", 1, page, text))
 
-export const addToMovieCollection = (collection, data) =>
-    api.post(userMovieCollectionUrl(collection), data)
+export const addToMovieCollection = (collection, id) =>
+    api.post(userMovieCollectionUrl(collection, id))
+
+export const removeFromMovieCollection = (collection, id) =>
+    api.post(userMovieCollectionUrl(collection, id, "remove"))
 
 export const showUserMovieCollection = (collection) =>
     api.get(userMovieCollectionUrl(collection))

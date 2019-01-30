@@ -179,9 +179,13 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .movie__content .movie__actions { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: none; }
 
+.movie__content .movie__actions .movie__remove { width: 45px; height: 45px; border-radius: 10px; background-color: #2f364a; border: 1px solid #78829d; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top: 10px; right: 20px; font-size: 30px; color: #78829d; cursor: pointer; -webkit-transition: .3s all; -o-transition: .3s all; transition: .3s all; }
+
+.movie__content .movie__actions .movie__remove:hover { background-color: #ffffff; color: #2f364a; }
+
 .movie__content .movie__actions .movie__add { position: absolute; top: 10px; left: 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-.movie__content .movie__actions .movie__btn { position: absolute; top: 60%; left: 50%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 1px solid #78829d; background-color: #2f364a; border-radius: 10px; padding: 7px 25px; white-space: nowrap; -webkit-transition: .3s all; -o-transition: .3s all; transition: .3s all; font-weight: 700; }
+.movie__content .movie__actions .movie__btn { position: absolute; top: 60%; left: 50%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border: 1px solid #78829d; background-color: #2f364a; border-radius: 10px; padding: 7px 25px; white-space: nowrap; -webkit-transition: .3s all; -o-transition: .3s all; transition: .3s all; font-weight: 700; outline: none; color: #78829d; cursor: pointer; }
 
 .movie__content .movie__actions .movie__btn:hover { background-color: #fff; color: #2f364a; }
 
