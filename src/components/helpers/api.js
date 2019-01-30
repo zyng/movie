@@ -13,7 +13,6 @@ const apiAction = (url, method, body, resolve, reject) => {
         method: method,
         headers: {
             "Content-Type": 'application/json; charset=utf-8'
-            // "X-RateLimit-Limit": 100
         },
         body: JSON.stringify(body)
     })

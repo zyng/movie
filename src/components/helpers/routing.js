@@ -1,5 +1,7 @@
 const movieURL = "https://api.themoviedb.org/3/movie";
 const userListUrl = "https://api.themoviedb.org/3/list";
+const userRatedListUrl = "https://api.themoviedb.org/3/account"
+
 const mustWatchListId = 104224;
 const favouriteListId = 104225;
 const watchedListId = 104226;
@@ -9,16 +11,9 @@ const searchMovieURL = "https://api.themoviedb.org/3/search/movie";
 const key = "ae60b48c0c9fb756e036cdeb7bc07360";
 const sessionId = "1c9c64e55f08ecdb3d95d688e85862d1373616db";
 const requestToken = "bad1c98445b656a8b07219a6649f327f0ad2f1b9";
-
-// const userMustWatchMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/must-watch-movies";
-// const userFavouriteMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/favourite-movies";
-// const userWatchedMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/watched-movies";
-// const userMaybeLaterMoviesUrl = "https://searchmoviesdatabase.herokuapp.com/api/maybe-later-movies";
-
-
+const userId = 8223639;
 
 export const movieApiUrl = (type = "popular", page = 1, id = '', inputValue = '') => {
-
     if (inputValue !== '') {
         return `${searchMovieURL}?api_key=${key}&query=${inputValue}`
     }
@@ -30,7 +25,6 @@ export const movieApiUrl = (type = "popular", page = 1, id = '', inputValue = ''
     } else {
         return `${movieURL}/${type}?api_key=${key}&page=${page}`
     }
-
 }
 
 export const userMovieCollectionUrl = (collection, id, type) => {
@@ -64,5 +58,12 @@ export const userMovieCollectionUrl = (collection, id, type) => {
                     : `${userListUrl}/${maybeLaterListId}?api_key=${key}`
     }
 }
+
+export const userRatingUrl = (id, rating) =>
+    rating ? `${movieURL}/${id}/rating?api_key=${key}&session_id=${sessionId}&value=${rating}` : `${movieURL}/${id}/rating?api_key=${key}&session_id=${sessionId}`
+
+
+export const ratedMoviesListUrl = (page = 1) =>
+    `${userRatedListUrl}/${userId}/rated/movies?api_key=${key}&session_id=${sessionId}&page=${page}`
 
 

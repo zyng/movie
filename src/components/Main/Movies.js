@@ -83,6 +83,33 @@ class Movies extends Component {
                     return moviesWithPageAndGenres;
 
                 })
+                .then(async result => {
+
+                    await movieApi.getRatedMovies()
+                        .then(async data => {
+                            const totalPages = data.total_pages;
+
+                            for (let i = 1; i <= totalPages; i++) {
+                                await movieApi.getRatedMovies(i)
+                                    .then(data => {
+                                        const ratedMovies = data.results;
+
+                                        result = movies.map(movie => {
+                                            ratedMovies.forEach(rated => {
+                                                if (movie.id === rated.id) {
+                                                    movie.user_rating = rated.rating
+                                                }
+                                            })
+
+                                            return movie
+                                        })
+
+                                    })
+                            }
+                        })
+                    return result
+
+                })
                 .then(result => {
                     Promise.all(result.map(movie => fetch(
                         `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
@@ -152,6 +179,7 @@ class Movies extends Component {
                     movies: moviesWithoutRemoved
                 });
             })
+            .then(() => movieApi.removeRating(id))
     }
 
     render() {
@@ -169,6 +197,7 @@ class Movies extends Component {
                     similar={() => this.loadNewMovies("similar", 1, movie.id)}
                     actualSearchedCollection={this.props.match.params.id}
                     removeMovieFromCollection={this.removeMovie}
+                    userRating={movie.user_rating}
                 />)
             }
         })

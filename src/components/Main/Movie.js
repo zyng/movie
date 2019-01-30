@@ -12,7 +12,7 @@ class Movie extends Component {
         addedToFavourite: false,
         addedToWatched: false,
         addedToMaybeLater: false,
-        rating: 0
+        rating: this.props.userRating
     }
 
     static defaultProps = {
@@ -91,13 +91,17 @@ class Movie extends Component {
         }
     }
 
-    changeRating(newRating) {
+    changeRating(id, actualSearchedCollection, newRating) {
         this.setState({
             rating: newRating
-        });
+        })
+
+        movieApi.rateMovie(id, newRating)
+            .then(() => {
+                if (actualSearchedCollection !== "watched")
+                    movieApi.addToMovieCollection('watched', id)
+            })
     }
-
-
 
 
     render() {
@@ -155,7 +159,7 @@ class Movie extends Component {
                                 numberOfStars={10}
                                 starHoverColor='#15a4fa'
                                 starRatedColor='#ffab00'
-                                changeRating={this.changeRating.bind(this)}
+                                changeRating={this.changeRating.bind(this, id, actualSearchedCollection)}
                                 name='rating'
                             />
                         </div>

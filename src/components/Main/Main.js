@@ -23,14 +23,6 @@ class MainContent extends Component {
         this.setState({ type: type });
     }
 
-    createList = () => {
-
-        fetch('https://api.themoviedb.org/3/list/104224/add_item?api_key=ae60b48c0c9fb756e036cdeb7bc07360&session_id=1c9c64e55f08ecdb3d95d688e85862d1373616db&media_id=555', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
-    }
-
     render() {
         return (
             <section className="main__content">
