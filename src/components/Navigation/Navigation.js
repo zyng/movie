@@ -72,10 +72,14 @@ class Navigation extends Component {
             menu.classList.remove('active')
         else
             menu.classList.add('active')
-
     }
 
-
+    toggleMenuOnHover = () => {
+        if ("ontouchstart" in document.documentElement)
+            this.toggleMenu();
+        else
+            return false
+    }
     render() {
         const lastTwoHistory = this.state.historyList.slice(-2);
 

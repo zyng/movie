@@ -11,10 +11,20 @@
         width: 80%;
         color: #fff;
 
+        @include mQ(1024px){
+            width: 100%;
+        }
+
         .notification__description {
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
+
+            @include mQ(1340px) {
+                flex-direction: column;
+                overflow: visible;
+                height: auto;
+            }
 
             i {
                 font-size: 25px;
@@ -23,13 +33,20 @@
                 width: 18px;
                 height: 18px;
                 &.add {
-                    color: lighten(#138A36,15);
+                    color: #04E824;
                 }
                 &.remove {
-                    color: red
+                    color: #E63946
                 }
 
 
+            }
+
+            .notification__time {
+                @include mQ(1340px) {
+                    margin-top: 10px;
+                    align-self: flex-end;
+                }
             }
 
         }

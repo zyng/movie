@@ -193,7 +193,7 @@
                 }
             }
 
-            &:hover {
+            &.active {
                 #{$self}__actions {
                     display: block;
                 }
@@ -323,6 +323,9 @@
                     @include mQ(1520px) {
                         font-size: 11px;
                     }
+                    @include mQ(1199px) {
+                        width: 160px;
+                    }
                 }
 
                 &.active span {
@@ -336,7 +339,7 @@
 
             }
 
-            &:hover {
+            &.active {
 
                 &::after {
                     content: '';

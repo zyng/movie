@@ -118,6 +118,27 @@ class Movie extends Component {
             .then(() => this.setState({ savingProccess: false }))
     }
 
+    toggleMovie(e) {
+        const movie = e.target.parentNode;
+
+        if (movie.classList.contains('active'))
+            movie.classList.remove('active')
+        else
+            movie.classList.add('active')
+    }
+
+    toggleMovieOnHover(e) {
+        if ("ontouchstart" in document.documentElement)
+            return false
+        else
+            this.toggleMovie(e);
+    }
+    toggleMovieOnClick(e) {
+        if ("ontouchstart" in document.documentElement)
+            this.toggleMovie(e);
+        else
+            return false
+    }
 
     render() {
         const { id, title, poster, rating, homepage, genres, similarResult, watched, maybeLater, favourite, mustWatch, actualPage, removeMovieFromCollection, showMovie } = this.props;
@@ -128,7 +149,7 @@ class Movie extends Component {
 
             <div className={`movie ${showMovie ? '' : 'hide'}`}>
 
-                <div className="movie__content">
+                <div className="movie__content" onClick={(e) => this.toggleMovieOnClick(e)} onMouseEnter={(e) => this.toggleMovieOnHover(e)} onMouseLeave={(e) => this.toggleMovieOnHover(e)}>
                     <Loading isActive={savingProccess} />
                     <img src={`https://image.tmdb.org/t/p/original${poster}`} alt="" />
                     <div className="movie__actions">
