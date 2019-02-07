@@ -42,16 +42,16 @@ class MainContent extends Component {
                         <div className="main__actions-bar">
                             <ul className="main__filters">
                                 <li onClick={() => this.changeTypeMovies('popular')} >
-                                    <NavLink exact strict to="/popular" activeClassName="active"><span>Popular Movies</span></NavLink>
+                                    <NavLink to="/popular" activeClassName="active"><span>Popular Movies</span></NavLink>
                                 </li>
                                 <li onClick={() => this.changeTypeMovies('top_rated')} >
-                                    <NavLink exact to="/top_rated" activeClassName="active"><span>Top Rated Movies</span></NavLink>
+                                    <NavLink to="/top_rated" activeClassName="active"><span>Top Rated Movies</span></NavLink>
                                 </li>
                                 <li onClick={() => this.changeTypeMovies('now_playing')}  >
-                                    <NavLink exact to="/now_playing" activeClassName="active"><span >Now Playing Movies</span></NavLink>
+                                    <NavLink to="/now_playing" activeClassName="active"><span >Now Playing Movies</span></NavLink>
                                 </li>
                                 <li onClick={() => this.changeTypeMovies('upcoming')} >
-                                    <NavLink exact to="/upcoming" activeClassName="active"><span>Upcoming Movies</span></NavLink>
+                                    <NavLink to="/upcoming" activeClassName="active"><span>Upcoming Movies</span></NavLink>
                                 </li>
                             </ul>
                             <label htmlFor="search-movie">
