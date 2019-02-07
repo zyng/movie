@@ -1,11 +1,13 @@
 {
   "name": "movie",
+  "homepage": "https://zyng.github.io/movie",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "animate.css": "^3.7.0",
     "bootstrap": "^4.2.1",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^2.0.1",
     "jquery": "^3.3.1",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
@@ -17,6 +19,8 @@
     "styled-components": "^4.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
