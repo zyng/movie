@@ -8,7 +8,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 class App extends Component {
 
-
   componentDidMount() {
 
     const btnScrollToTop = $('.scrollToTop');
@@ -27,20 +26,19 @@ class App extends Component {
     $("html, body").animate({ scrollTop: 0 }, 400);
     return false;
   }
+
   render() {
     return (
       <>
-        <Header />
-        <main>
-          <Router>
-            <>
+        <Router>
+          <>
+            <Header />
+            <main>
               <Navigation />
               <MainContent />
-            </>
-          </Router>
-
-        </main>
-
+            </main>
+          </>
+        </Router>
 
         <button onClick={this.handleGoToTop} className="scrollToTop"><i className="fa fa-angle-double-up"></i></button>
       </>

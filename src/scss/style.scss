@@ -7,6 +7,9 @@
 @import 'navigation';
 @import 'main';
 @import 'loading';
+@import 'history';
+@import 'addMovie';
+@import 'support';
 
 
 body {
@@ -14,6 +17,7 @@ body {
     font-family: $mainFont;
     font-size: $fontSize;
     min-height: 101vh;
+    position: relative;
 }
 
 a {
@@ -29,4 +33,6 @@ a {
 main {
     display: flex;
     margin-top: $headerHeight;
+    overflow: hidden;
+    min-height: 100vh;
 }

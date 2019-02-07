@@ -1,0 +1,14 @@
+.unexpected-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-40%);
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    width: 70%;
+
+    @include mQ(699px) {
+        width: 75%;
+    }
+}

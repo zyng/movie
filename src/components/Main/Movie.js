@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 import Loading from "../Loading/Loading";
 import * as movieApi from "../helpers/movieApi";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 class Movie extends Component {
 
@@ -12,7 +12,7 @@ class Movie extends Component {
         addedToFavourite: false,
         addedToWatched: false,
         addedToMaybeLater: false,
-        rating: this.props.userRating
+        rating: this.props.userRating,
     }
 
     static defaultProps = {
@@ -52,17 +52,27 @@ class Movie extends Component {
         },
         {
             path: '/upcoming'
+        },
+        {
+            path: '/similar/:match'
         }
     ]
 
-    addToCollection = (e, type, id) => {
+    addToCollection = (e, type, id, title) => {
         e.preventDefault();
+
+        const history = {
+            movie_name: title,
+            collection: type,
+            action: 'add'
+        }
         switch (type) {
             case "must-watch":
                 if (!this.state.addedToMustWatch) {
                     this.setState({ savingProccess: true });
                     movieApi.addToMovieCollection('must-watch', id)
                         .then(() => this.setState({ savingProccess: false, addedToMustWatch: true }))
+                        .then(() => movieApi.saveHistory(history))
                 }
                 break;
             case "favourite":
@@ -70,6 +80,7 @@ class Movie extends Component {
                     this.setState({ savingProccess: true });
                     movieApi.addToMovieCollection('favourite', id)
                         .then(() => this.setState({ savingProccess: false, addedToFavourite: true }))
+                        .then(() => movieApi.saveHistory(history))
                 }
                 break;
             case "watched":
@@ -77,6 +88,7 @@ class Movie extends Component {
                     this.setState({ savingProccess: true });
                     movieApi.addToMovieCollection('watched', id)
                         .then(() => this.setState({ savingProccess: false, addedToWatched: true }))
+                        .then(() => movieApi.saveHistory(history))
                 }
                 break;
             case "maybe-later":
@@ -84,6 +96,7 @@ class Movie extends Component {
                     this.setState({ savingProccess: true });
                     movieApi.addToMovieCollection('maybe-later', id)
                         .then(() => this.setState({ savingProccess: false, addedToMaybeLater: true }))
+                        .then(() => movieApi.saveHistory(history))
                 }
                 break;
             default:
@@ -91,26 +104,29 @@ class Movie extends Component {
         }
     }
 
-    changeRating(id, actualSearchedCollection, newRating) {
+    changeRating(id, actualPage, newRating) {
         this.setState({
             rating: newRating
         })
 
+        this.setState({ savingProccess: true });
         movieApi.rateMovie(id, newRating)
             .then(() => {
-                if (actualSearchedCollection !== "watched")
+                if (actualPage !== "watched")
                     movieApi.addToMovieCollection('watched', id)
             })
+            .then(() => this.setState({ savingProccess: false }))
     }
 
 
     render() {
-        const { id, title, poster, rating, homepage, genres, similar, similarResult, watched, maybeLater, favourite, mustWatch, actualSearchedCollection, removeMovieFromCollection } = this.props;
+        const { id, title, poster, rating, homepage, genres, similarResult, watched, maybeLater, favourite, mustWatch, actualPage, removeMovieFromCollection, showMovie } = this.props;
         const { savingProccess, addedToMustWatch, addedToFavourite, addedToWatched, addedToMaybeLater } = this.state;
         const genresFormatted = Array.isArray(genres) ? genres.join(`, `) : genres;
 
         return (
-            <div className="movie">
+
+            <div className={`movie ${showMovie ? '' : 'hide'}`}>
 
                 <div className="movie__content">
                     <Loading isActive={savingProccess} />
@@ -125,7 +141,7 @@ class Movie extends Component {
                                     exact
                                     strict
                                     render={() => (
-                                        <div onClick={() => removeMovieFromCollection(actualSearchedCollection, id)} className="movie__remove"><span class="fa fa-trash"></span></div>
+                                        <div onClick={() => removeMovieFromCollection(actualPage, id, title)} className="movie__remove"><span className="fa fa-trash"></span></div>
                                     )}
 
                                 />
@@ -138,18 +154,18 @@ class Movie extends Component {
                                     strict
                                     render={() => (
                                         <div className="movie__add">
-                                            <div onClick={(e) => this.addToCollection(e, "must-watch", id)} className={`movie__action ${addedToMustWatch ? 'active' : ''}`}><a href="/" > </a><span>{addedToMustWatch ? "Added to Must Watch" : mustWatch}</span></div>
-                                            <div onClick={(e) => this.addToCollection(e, "favourite", id)} className={`movie__action ${addedToFavourite ? 'active' : ''}`}><a href="/" > </a><span>{addedToFavourite ? "Added to Favourite" : favourite}</span></div>
-                                            <div onClick={(e) => this.addToCollection(e, "watched", id)} className={`movie__action ${addedToWatched ? 'active' : ''}`}><a href="/" > </a><span>{addedToWatched ? "Added to Watched" : watched}</span></div>
-                                            <div onClick={(e) => this.addToCollection(e, "maybe-later", id)} className={`movie__action ${addedToMaybeLater ? 'active' : ''}`}><a href="/" > </a><span>{addedToMaybeLater ? "Added to Maybe Later" : maybeLater}</span></div>
+                                            <div onClick={(e) => this.addToCollection(e, "must-watch", id, title)} className={`movie__action ${addedToMustWatch ? 'active' : ''}`}><a href="/" > </a><span>{addedToMustWatch ? "Added to Must Watch" : mustWatch}</span></div>
+                                            <div onClick={(e) => this.addToCollection(e, "favourite", id, title)} className={`movie__action ${addedToFavourite ? 'active' : ''}`}><a href="/" > </a><span>{addedToFavourite ? "Added to Favourite" : favourite}</span></div>
+                                            <div onClick={(e) => this.addToCollection(e, "watched", id, title)} className={`movie__action ${addedToWatched ? 'active' : ''}`}><a href="/" > </a><span>{addedToWatched ? "Added to Watched" : watched}</span></div>
+                                            <div onClick={(e) => this.addToCollection(e, "maybe-later", id, title)} className={`movie__action ${addedToMaybeLater ? 'active' : ''}`}><a href="/" > </a><span>{addedToMaybeLater ? "Added to Maybe Later" : maybeLater}</span></div>
                                         </div>
                                     )}
                                 />
                             ))}
                         </Switch>
 
-                        {homepage && <a href={homepage} className='movie__btn movie__btn--goto'>Check Movie</a>}
-                        {similarResult > 0 && <button onClick={similar} className='movie__btn movie__btn--similar'>Show Similar</button>}
+                        {homepage && <a href={homepage} target="_blank" className='movie__btn movie__btn--goto'>Check Movie</a>}
+                        {similarResult > 0 && <Link to={`/similar/${id}`} className='movie__btn movie__btn--similar'>Show Similar</Link>}
                         <div className="movie__rate">
                             <span>Your rating:</span>
                             <StarRatings
@@ -159,7 +175,7 @@ class Movie extends Component {
                                 numberOfStars={10}
                                 starHoverColor='#15a4fa'
                                 starRatedColor='#ffab00'
-                                changeRating={this.changeRating.bind(this, id, actualSearchedCollection)}
+                                changeRating={this.changeRating.bind(this, id, actualPage)}
                                 name='rating'
                             />
                         </div>

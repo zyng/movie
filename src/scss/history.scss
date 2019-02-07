@@ -1,0 +1,37 @@
+.browse-history {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    .history__notification {
+        background: lighten(#2f364a, 40);
+        padding: 15px 30px;
+        border-radius: 10px;
+        width: 80%;
+        color: #fff;
+
+        .notification__description {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            i {
+                font-size: 25px;
+                background-color: white;
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                &.add {
+                    color: lighten(#138A36,15);
+                }
+                &.remove {
+                    color: red
+                }
+
+
+            }
+
+        }
+    }
+}

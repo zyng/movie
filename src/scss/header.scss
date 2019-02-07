@@ -15,7 +15,6 @@
         left: $contentMargin;
         display: flex;
 
-
         div {
             width: 10px;
             height: 10px;
@@ -70,8 +69,10 @@
         }
         & > a {
             color: $textColor;
-
             position: relative;
+            @include mQ(1160px) {
+                margin-right: 25px;
+            }
 
             &:hover {
                 &::after {
@@ -94,6 +95,7 @@
             height: 45px;
             display: flex;
             align-items: center;
+            position: relative;
 
             a {
                 display: flex;
@@ -122,14 +124,75 @@
             i {
                 margin-left: 25px;
                 color: #fff;
+
+                @include mQ(630px) {
+                    margin-left: 0;
+                    font-size: 18px;
+                }
+            }
+
+            .profile__logo, .profile__name {
+                @include mQ(630px) {
+                    display: none;
+                }
+            }
+
+            .profile__menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: $headerBG;
+                width: 100%;
+                padding: 20px 32px;
+                box-shadow: -5px 5px 20px 0 rgba(0,0,0,.5);
+                transition: opacity .3s;
+                @include mQ(630px) { width: 200px}
+
+
+                li {
+                   display: flex;
+                   justify-content: flex-end;
+
+                   span {
+                        margin-left: 25px;
+                        transform: scaleX(-1)
+                   }
+
+                   a {
+                       transition: .3s all;
+                       &:hover {
+                           color: #fff;
+                       }
+                   }
+                }
+
+                li:not(:last-child) {margin-bottom: 10px;}
+                .show-mobile {
+                    display: block;
+                }
+            }
+
+            &:hover {
+                .profile__menu {
+                    display: flex;
+                    flex-direction: column;
+                }
             }
         }
 
         & > a {
             margin-right: 25px;
         }
+
+        .hide-mobile {
+            @include mQ(630px) {
+                display: none;
+            }
+        }
     }
 
-
 }
+
+
 

@@ -3,7 +3,14 @@
 
     &__content {
         width: 100%;
-        margin-left: 350px;
+        padding-left: $navWidth;
+
+        @include mQ(1520px) {
+            padding-left: $navWidthMid;
+        }
+        @include mQ(630px) {
+            padding-left: $navWidthSmall;
+        }
     }
 
     &__header {
@@ -25,11 +32,26 @@
             justify-content: space-between;
             border-bottom: 2px solid #dadfea;
 
+            @include mQ(1160px) {
+                flex-direction: column;
+            }
+
             #{$self}__filters {
                 display: flex;
 
+                @include mQ(740px) {
+                    flex-wrap: wrap;
+                }
+
                 li:not(:last-child) {
                     margin-right:  15px;
+                }
+                li {
+                    @include mQ(740px) {
+                        width: 100%;
+                        margin-right: 0;
+                        white-space: nowrap;
+                    }
                 }
                 a {
                     font-size: 14px;
@@ -55,6 +77,11 @@
             label {
                 position: relative;
 
+                @include mQ(1160px) {
+                    margin-top: 30px;
+                    width: fit-content;
+                }
+
                 input {
                     padding: 8px 15px;
                     width: 200px;
@@ -65,6 +92,7 @@
                     text-overflow: ellipsis;
                     padding-right: 50px;
                     transition: width .3s;
+
 
                     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                         color: #8c97b2;
@@ -82,6 +110,13 @@
                     &:focus {
                         outline: none;
                         width: 400px;
+
+                        @include mQ(1160px) {
+                            width: 300px;
+                        }
+                        @include mQ(375px) {
+                            width: 250px;
+                        }
                     }
                 }
                 i {
@@ -101,16 +136,37 @@
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        padding: 30px 0 0 30px;
+        padding: 30px 0 0 $movieMargin;
         position: relative;
+
+        @include mQ(630px) {
+            padding: 30px 0;
+        }
 }
 .movie {
         $self: &;
         @include grid(5,2%);
+        @include mQ(1880px) {
+            @include grid(4,$movieMargin);
+        }
+        @include mQ(1230px) {
+            @include grid(3,$movieMargin);
+        }
+        @include mQ(955px) {
+            @include grid(2,$movieMargin);
+        }
+        @include mQ(630px) {
+            flex-direction: column;
+            width: 80%;
+            margin: 0 auto 30px;
+        }
+        @include mQ(425px) {
+            width: 95%;
+        }
 
-        // @include mQ(){
-
-        // }
+        &.hide {
+            display: none;
+        }
         &__content {
             position: relative;
             overflow: hidden;
@@ -209,6 +265,11 @@
                     color:  $textColor;
                     cursor: pointer;
 
+                    @include mQ(1520px) {
+                        padding: 5px 18px;
+                        font-size: 12px;
+                    }
+
                     &:hover {
                         background-color: #fff;
                         color: #2f364a;
@@ -258,6 +319,10 @@
                     white-space: nowrap;
                     font-weight: 500;
                     font-size: 14px;
+
+                    @include mQ(1520px) {
+                        font-size: 11px;
+                    }
                 }
 
                 &.active span {

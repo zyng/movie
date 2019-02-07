@@ -1,17 +1,21 @@
 const movieURL = "https://api.themoviedb.org/3/movie";
 const userListUrl = "https://api.themoviedb.org/3/list";
 const userRatedListUrl = "https://api.themoviedb.org/3/account"
+const searchMovieURL = "https://api.themoviedb.org/3/search/movie";
+
 
 const mustWatchListId = 104224;
 const favouriteListId = 104225;
 const watchedListId = 104226;
 const maybeLaterListId = 104227;
 
-const searchMovieURL = "https://api.themoviedb.org/3/search/movie";
+const userId = 8223639;
+
 const key = "ae60b48c0c9fb756e036cdeb7bc07360";
 const sessionId = "1c9c64e55f08ecdb3d95d688e85862d1373616db";
-const requestToken = "bad1c98445b656a8b07219a6649f327f0ad2f1b9";
-const userId = 8223639;
+// const requestToken = "bad1c98445b656a8b07219a6649f327f0ad2f1b9";
+
+
 
 export const movieApiUrl = (type = "popular", page = 1, id = '', inputValue = '') => {
     if (inputValue !== '') {
@@ -56,6 +60,8 @@ export const userMovieCollectionUrl = (collection, id, type) => {
                 : id ?
                     `${userListUrl}/${maybeLaterListId}/add_item?api_key=${key}&session_id=${sessionId}&media_id=${id}`
                     : `${userListUrl}/${maybeLaterListId}?api_key=${key}`
+        default:
+            return ``
     }
 }
 
@@ -66,4 +72,4 @@ export const userRatingUrl = (id, rating) =>
 export const ratedMoviesListUrl = (page = 1) =>
     `${userRatedListUrl}/${userId}/rated/movies?api_key=${key}&session_id=${sessionId}&page=${page}`
 
-
+export const historyApiUrl = 'https://searchmoviesdatabase.herokuapp.com/api/history'

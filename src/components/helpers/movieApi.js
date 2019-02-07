@@ -1,4 +1,4 @@
-import { movieApiUrl, userMovieCollectionUrl, ratedMoviesListUrl, userRatingUrl } from "./routing";
+import { movieApiUrl, userMovieCollectionUrl, ratedMoviesListUrl, userRatingUrl, historyApiUrl } from "./routing";
 import * as api from "./api";
 
 export const getAllMovies = (type, page) =>
@@ -31,3 +31,8 @@ export const rateMovie = (id, rating) =>
 export const removeRating = (id) =>
     api.destroy(userRatingUrl(id))
 
+export const getHistory = () =>
+    api.get(historyApiUrl)
+
+export const saveHistory = (history) =>
+    api.post(historyApiUrl, history)

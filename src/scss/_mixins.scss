@@ -28,3 +28,33 @@
     //     // margin-right: 0;
     // }
 }
+
+@mixin button($color) {
+    min-width: 200px;
+    padding: 20px 30px;
+    border-radius: 4px;
+    background-color: $color;
+    border: none;
+    outline: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+@mixin closeBtn($color, $rotate, $side ) {
+    content: '';
+    position: absolute;
+    @if $side == 'left' {
+        left: 0;
+    } else {
+        right: 0;
+    }
+    width: 4px;
+    height: 100%;
+    background-color: $color;
+    border-radius: 10px;
+    z-index: 3;
+    transform: rotateZ(#{$rotate}deg)
+}

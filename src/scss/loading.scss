@@ -1,5 +1,5 @@
 .loading__logo {
-        position: absolute;
+          position: absolute;
         left: $contentMargin;
         display: flex;
         top: 50%;
@@ -13,24 +13,40 @@
         align-items: center;
         display: none;
 
-        &.page{
-            top: 40vh;
-            background: transparent;
-        }
-        &.active {
-            display: flex;
-        }
 
         div {
             width: 10px;
             height: 10px;
-            border-radius: 5px;
+            border-radius: 50%;
             animation: jump .6s infinite;
 
             &:not(:last-child) {
                 margin-right: 5px;
             }
         }
+        &.page{
+            top: 40vh;
+            background: transparent;
+            div {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        &.history {
+            top: 5vh;
+            background-color: transparent;
+            div {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        &.active {
+            display: flex;
+        }
+
+        .loading__logo--standard:nth-child(1) {background-color: darken($menuBG, 4);}
+        .loading__logo--standard:nth-child(2) {background-color: darken($menuBG, 6);animation-delay: .1s}
+        .loading__logo--standard:nth-child(3) {background-color: darken($menuBG, 10);animation-delay: .2s}
 
         .loading__logo--red {
             background-color: #e76847;

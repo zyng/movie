@@ -3,7 +3,11 @@
     left: 0;
     background-color: $menuBG;
     min-height: 100vh;
-    max-width: 350px;
+    width: $navWidth;
+    z-index: 3;
+    height: 100%;
+    transition: width .3s;
+
 
     &__new-movie {
         display: flex;
@@ -12,25 +16,42 @@
         padding: 30px 0;
         position: relative;
 
-        button {
-            min-width: 200px;
-            padding: 20px 30px;
-            border-radius: 4px;
-            background-color: #f2795a;
-            border: none;
-            outline: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 14px;
+        a.addMovie {
+           @include button(#f2795a);
 
+           @include mQ(1520px) {
+                min-width: auto;
+                width: 70%;
+                padding: 10px 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 12px;
+                line-height: 13px;
+                font-weight: 400;
+                height: 45px;
+
+                span {
+                    display: none;
+                }
+            }
             i {
                 margin-right: 30px;
+
+                @include mQ(1520px) {
+                    margin-right: 0;
+                }
             }
 
             &:hover {
                cursor: pointer;
+               color: #fff;
+               background-color: darken(#f2795a,5);
             }
+
+
         }
 
         &::after {
@@ -50,6 +71,10 @@
             align-items: center;
             padding-left: $contentMargin;
 
+            @include mQ(630px) {
+                padding-left: 17px;
+            }
+
             &.active {
                 background-color: $menuActiveItemBG;
                 color: #fff;
@@ -66,6 +91,9 @@
         }
         i {
             margin-right: 30px;
+            @include mQ(1520px) {
+                margin-right: 35px;
+            }
         }
 
         &::after {
@@ -84,22 +112,36 @@
             display: flex;
             align-items: center;
             height: 48px;
-
-            &::before {
-                content: '';
+            @include mQ(1520px) {
+                display: inline-block;
+                white-space: nowrap;
+                padding-top: 18px;
+            }
+            @include mQ(630px) {
+                padding-left: 17px;
+            }
+            .category-icon {
                 width: 8px;
                 height: 8px;
                 position: relative;
                 border-radius: 50%;
-                display: block;
+                display: inline-block;
                 margin-right: $contentMargin;
+
+                @include mQ(1520px) {
+                    width: 12px;
+                    height: 12px;
+                    margin-right: 35px;
+                }
             }
 
-            &:nth-child(1)::before { background-color: #e64c66;}
-            &:nth-child(2)::before { background-color: #ffab00;}
-            &:nth-child(3)::before { background-color: #00bfdd;}
-            &:nth-child(4)::before { background-color: #7874cf;}
-
+            &:nth-child(1) .category-icon { background-color: #e64c66;}
+            &:nth-child(2) .category-icon { background-color: #ffab00;}
+            &:nth-child(3) .category-icon { background-color: #00bfdd;}
+            &:nth-child(4) {
+                // @include mQ(1520px) { height: 12px;}
+                .category-icon { background-color: #7874cf;}
+            }
 
             &:hover {
                 background-color: $headerBG;
@@ -117,7 +159,11 @@
 
     &__history {
         @include flexCol;
-        padding: 30px;
+        padding: $contentMargin;
+        position: relative;
+        @include mQ(630px) {
+            padding-left: 17px;
+        }
         .history__notification {
             display: flex;
             margin-bottom: 30px;
@@ -134,7 +180,59 @@
                 span {
                     font-weight: 500;
                 }
+
+                @include mQ(1520px) {
+                    width: 0;
+                    height: 50px;
+                    overflow: hidden;
+                }
             }
         }
+    }
+
+    .hideMenu {
+        background-color:  transparent;
+        outline: none;
+        border: none;
+        width: 100%;
+        text-align: center;
+
+        span {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 500;
+            margin-left: -5px;
+            margin-top: 20px;
+            transform: scaleX(-1);
+            transition: transform .3s;
+        }
+    }
+    @include mQ(1520px) {
+        width: $navWidthMid;
+        overflow: hidden;
+
+        &.active {
+            width: 320px;
+
+            .menu__history .history__notification .notification__description {
+                width: 100%;
+                height: auto;
+            }
+            .menu__new-movie a.addMovie span {
+                display: inline;
+            }
+            .menu__new-movie a.addMovie {
+                flex-direction: row
+            }
+            .menu__new-movie a.addMovie i {
+                margin-right: 30px;
+            }
+            .hideMenu span {
+                transform: scaleX(1);
+            }
+        }
+    }
+    @include mQ(630px) {
+        width: $navWidthSmall;
     }
 }

@@ -1,0 +1,202 @@
+.form-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,.7);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section {
+    position: relative;
+    width: 40%;
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 0px 38px 13px rgba(0,0,0,0.55);
+    min-height: 650px;
+
+    @include mQ(1380px) {
+        width: 50%;
+    }
+    @include mQ(1099px) {
+        padding: 80px 40px;
+    }
+    @include mQ(850px){
+        width: 60%;
+    }
+    @include mQ(699px) {
+        width: 90%;
+    }
+    @include mQ(425px) {
+        width: 95%;
+        min-height: 500px;
+        padding: 30px 20px;
+    }
+
+    .form-section__title {
+        color: $menuActiveItemBG;
+        font-weight: 700;
+        font-size: 35px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        text-align: center;
+
+        @include mQ(1520px) {
+            font-size: 25px;
+        }
+        @include mQ(425px) {
+            font-size: 20px;
+        }
+    }
+
+    .closeForm {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        width: 40px;
+        height: 40px;
+        transition: all .3s;
+        cursor: pointer;
+
+        @include mQ(699px) {
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            right: 5px;
+        }
+
+        &:before {
+            @include closeBtn(lighten($textColor,30),45,left)
+        }
+        &:after {
+            @include closeBtn(lighten($textColor,30),-45,right)
+        }
+
+        &:hover:before,&:hover:after {
+            background-color: lighten($textColor, 0);
+        }
+    }
+}
+.help-form {
+        display: flex;
+        flex-direction: column;
+
+        .help-form__personal-data {
+            display: flex;
+            .personal-data__user_name {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+
+                &:first-child {
+                    margin-right: 50px;
+
+                    @include mQ(699px) {
+                        margin-right: 20px;
+                    }
+                }
+            }
+
+        }
+        label {
+            color: $textColor;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: -1px;
+            font-size: 16px;
+            position: relative;
+            white-space: nowrap;
+
+            @include mQ(1520px) {
+                font-size: 14px;
+            }
+            @include mQ(1380px) {
+                font-size: 12px;
+            }
+            @include mQ(425px) {
+                font-size: 11px;
+            }
+            span {
+                position: absolute;
+                will-change: transform;
+                transition: all .3s;
+
+                &.active {
+                    transform: translateY(-25px) scale(.8) translateX(-10px);
+                }
+
+            }
+
+        }
+        input, textarea, select {
+            border: none;
+            outline: none;
+            border-bottom: 1.5px solid lighten($textColor, 30);
+            margin-bottom: 50px;
+            width: 100%;
+            transition: border-color .3s;
+
+            &.error {
+                border-color: #E63946;
+            }
+            &.success {
+                border-color: #04E824;
+            }
+
+        }
+        select {
+            text-transform: uppercase;
+            font-size: 14px;
+            appearance: none;
+            padding-bottom: 5px;
+
+            @include mQ(425px){
+                font-size: 11px;
+            }
+        }
+
+        .sendMessage {
+            @include button($menuActiveItemBG);
+            align-self: flex-end;
+
+            @include mQ(425px) {
+                min-width: auto;
+                padding: 10px 20px;
+            }
+
+            &:hover {
+                background-color: lighten($menuActiveItemBG, 9);
+                cursor: pointer;
+            }
+
+            i {
+                margin-left: 30px;
+            }
+        }
+}
+
+.form-confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    line-height: 24px;
+
+    span {
+        font-size: 100px;
+        margin: 50px 0 30px 0;
+        color: #04E824;
+    }
+}
