@@ -55,10 +55,18 @@ class MainContent extends Component {
                                 </li>
                             </ul>
 
-                            <label htmlFor="search-movie">
-                                <input onChange={this.changeInput} type="text" id="search-movie" placeholder="Enter keywords..." />
-                                <i className="fa fa-search"></i>
-                            </label>
+
+                            <Route path='/' render={(props) => {
+                                if (props.location.pathname !== '/history') {
+                                    return (
+                                        <label htmlFor="search-movie">
+                                            <input onChange={this.changeInput} type="text" id="search-movie" placeholder="Enter keywords..." />
+                                            <i className="fa fa-search"></i>
+                                        </label>
+                                    )
+                                } else return null;
+                            }} />
+
 
 
                         </div>
