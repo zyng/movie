@@ -54,22 +54,23 @@ class MainContent extends Component {
                                     <NavLink to="/upcoming" activeClassName="active"><span>Upcoming Movies</span></NavLink>
                                 </li>
                             </ul>
+
                             <label htmlFor="search-movie">
                                 <input onChange={this.changeInput} type="text" id="search-movie" placeholder="Enter keywords..." />
                                 <i className="fa fa-search"></i>
                             </label>
+
+
                         </div>
                     </header>
                     <Switch>
-                        <Route path='/history' exact component={HistoryBrowse} />
-                        <Route path='/add-movie' exact component={SomethingWrong} />
-                        <Route path='/logout' exact component={SomethingWrong} />
+                        <Route path='/history' component={HistoryBrowse} />
+                        <Route path='/add-movie' component={SomethingWrong} />
+                        <Route path='/logout' component={SomethingWrong} />
                         {this.routes.map((route, index) => (
                             <Route
                                 key={index}
                                 path={route.path}
-                                strict
-                                exact
                                 component={(props) => <Movies {...props} ref={this.movies} />}
                             />
                         ))}
