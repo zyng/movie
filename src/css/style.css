@@ -89,7 +89,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 @media screen and (max-width: 630px) { .header__nav .hide-mobile { display: none; } }
 
-.menu { position: fixed; left: 0; background-color: #1f2637; min-height: 100vh; width: 350px; z-index: 3; height: 100%; -webkit-transition: width .3s; -o-transition: width .3s; transition: width .3s; }
+.menu { position: fixed; left: 0; background-color: #1f2637; min-height: 100vh; width: 350px; z-index: 4; height: 100%; -webkit-transition: width .3s; -o-transition: width .3s; transition: width .3s; }
 
 .menu__new-movie { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 30px 0; position: relative; }
 
@@ -166,8 +166,16 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .menu .hideMenu span { color: #ffffff; font-size: 20px; font-weight: 500; margin-left: -5px; margin-top: 20px; -webkit-transform: scaleX(-1); -ms-transform: scaleX(-1); transform: scaleX(-1); -webkit-transition: -webkit-transform .3s; transition: -webkit-transform .3s; -o-transition: transform .3s; transition: transform .3s; transition: transform .3s, -webkit-transform .3s; }
 
-@media screen and (max-width: 1520px) { .menu { width: 75px; overflow: hidden; }
-  .menu.active { width: 320px; }
+@media screen and (max-width: 1520px) { .menu { width: 75px; overflow: hidden; } }
+
+@media screen and (max-width: 1520px) and (hover: hover) { .menu { width: 320px; }
+  .menu .menu__history .history__notification .notification__description { width: 100%; height: auto; }
+  .menu .menu__new-movie a.addMovie span { display: inline; }
+  .menu .menu__new-movie a.addMovie { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+  .menu .menu__new-movie a.addMovie i { margin-right: 30px; }
+  .menu .hideMenu span { -webkit-transform: scaleX(1); -ms-transform: scaleX(1); transform: scaleX(1); } }
+
+@media screen and (max-width: 1520px) { .menu.active { width: 320px; }
   .menu.active .menu__history .history__notification .notification__description { width: 100%; height: auto; }
   .menu.active .menu__new-movie a.addMovie span { display: inline; }
   .menu.active .menu__new-movie a.addMovie { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }

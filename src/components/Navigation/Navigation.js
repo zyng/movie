@@ -21,22 +21,15 @@ class Navigation extends Component {
     }
 
     toggleMenu = () => {
-        const menu = document.querySelector('.menu');
-        const currentWidth = menu.offsetWidth;
-
-
-        if (menu.classList.contains('active') && currentWidth !== this.menuWidth)
-            menu.classList.remove('active')
-        else
-            menu.classList.add('active')
-    }
-
-    toggleMenuOnHover = () => {
-        if ("ontouchstart" in document.documentElement)
-            this.toggleMenu();
+        if ("ontouchstart" in document.documentElement) {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active')
+        }
         else
             return false
     }
+
+
     render() {
         const lastTwoHistory = this.state.historyList.slice(-2);
 
@@ -52,7 +45,7 @@ class Navigation extends Component {
 
         return (
 
-            <aside className="menu" onMouseEnter={this.toggleMenu} onMouseLeave={this.toggleMenu}>
+            <aside className="menu" >
                 <div className="menu__new-movie">
                     <Link to='/add-movie' className="addMovie"><i className="fa fa-plus"></i><span>Add a movie</span></Link>
                 </div>

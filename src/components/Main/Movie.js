@@ -124,6 +124,14 @@ class Movie extends Component {
     }
 
     toggleMovieOnClick(e) {
+        if ("ontouchstart" in document.documentElement) {
+            this.toggleMovie(e)
+        }
+        else
+            return false
+    }
+
+    toggleMovie = (e) => {
         const activeMovie = e.target.closest('.movie')
         const movies = [...document.getElementsByClassName('movie')]
 

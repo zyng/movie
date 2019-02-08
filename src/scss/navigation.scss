@@ -4,7 +4,7 @@
     background-color: $menuBG;
     min-height: 100vh;
     width: $navWidth;
-    z-index: 3;
+    z-index: 4;
     height: 100%;
     transition: width .3s;
 
@@ -139,7 +139,6 @@
             &:nth-child(2) .category-icon { background-color: #ffab00;}
             &:nth-child(3) .category-icon { background-color: #00bfdd;}
             &:nth-child(4) {
-                // @include mQ(1520px) { height: 12px;}
                 .category-icon { background-color: #7874cf;}
             }
 
@@ -211,8 +210,28 @@
         width: $navWidthMid;
         overflow: hidden;
 
-        &.active {
+        @media(hover: hover) {
             width: 320px;
+
+            .menu__history .history__notification .notification__description {
+                width: 100%;
+                height: auto;
+            }
+            .menu__new-movie a.addMovie span {
+                display: inline;
+            }
+            .menu__new-movie a.addMovie {
+                flex-direction: row
+            }
+            .menu__new-movie a.addMovie i {
+                margin-right: 30px;
+            }
+            .hideMenu span {
+                transform: scaleX(1);
+            }
+        }
+        &.active {
+             width: 320px;
 
             .menu__history .history__notification .notification__description {
                 width: 100%;
