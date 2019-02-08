@@ -101,41 +101,43 @@ class Movies extends Component {
                     })
                     .then(async result => {
 
-                        await movieApi.getRatedMovies()
-                            .then(async data => {
-                                const totalPages = data.total_pages;
+                        if (type !== 'similar') {
+                            await movieApi.getRatedMovies()
+                                .then(async data => {
+                                    const totalPages = data.total_pages;
 
-                                const ratedMovies = data.results;
+                                    const ratedMovies = data.results;
 
-                                result = movies.map(movie => {
-                                    ratedMovies.forEach(rated => {
-                                        if (movie.id === rated.id) {
-                                            movie.user_rating = rated.rating
-                                        }
+                                    result = movies.map(movie => {
+                                        ratedMovies.forEach(rated => {
+                                            if (movie.id === rated.id) {
+                                                movie.user_rating = rated.rating
+                                            }
+                                        })
+
+                                        return movie
                                     })
 
-                                    return movie
-                                })
+                                    if (totalPages > 1)
+                                        for (let i = 2; i <= totalPages; i++) {
+                                            await movieApi.getRatedMovies(i)
+                                                .then(data => {
+                                                    const ratedMovies = data.results;
 
-                                if (totalPages > 1)
-                                    for (let i = 2; i <= totalPages; i++) {
-                                        await movieApi.getRatedMovies(i)
-                                            .then(data => {
-                                                const ratedMovies = data.results;
+                                                    result = movies.map(movie => {
+                                                        ratedMovies.forEach(rated => {
+                                                            if (movie.id === rated.id) {
+                                                                movie.user_rating = rated.rating
+                                                            }
+                                                        })
 
-                                                result = movies.map(movie => {
-                                                    ratedMovies.forEach(rated => {
-                                                        if (movie.id === rated.id) {
-                                                            movie.user_rating = rated.rating
-                                                        }
+                                                        return movie
                                                     })
 
-                                                    return movie
                                                 })
-
-                                            })
-                                    }
-                            })
+                                        }
+                                })
+                        }
                         return result
 
                     })
