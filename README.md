@@ -2,6 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## First run
 
+Clone project
+### `git clone https://github.com/zyng/movie.git`
+
+Insall CRA
+### `npx create-react-app`
+
 Install modules
 ### `npm install`
 
