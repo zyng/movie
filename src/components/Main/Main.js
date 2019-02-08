@@ -28,8 +28,11 @@ class MainContent extends Component {
         this.setState({ type: type });
     }
 
-    changeInput = (e) => {
+    handleChange = (e) => {
         this.movies.current.handleInput(e);
+    }
+    handleSubmit = (e) => {
+        this.movies.current.handleInputSubmit(e);
     }
 
     render() {
@@ -59,10 +62,13 @@ class MainContent extends Component {
                             <Route path='/' render={(props) => {
                                 if (props.location.pathname !== '/history') {
                                     return (
-                                        <label htmlFor="search-movie">
-                                            <input onChange={this.changeInput} type="text" id="search-movie" placeholder="Enter keywords..." />
-                                            <i className="fa fa-search"></i>
-                                        </label>
+                                        <form onSubmit={this.handleSubmit}>
+                                            <label htmlFor="search-movie">
+                                                <input onChange={this.handleChange} type="text" id="search-movie" placeholder="Enter keywords..." />
+                                                <i className="fa fa-search"></i>
+                                            </label>
+                                        </form>
+
                                     )
                                 } else return null;
                             }} />

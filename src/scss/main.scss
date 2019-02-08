@@ -167,12 +167,19 @@
         &.hide {
             display: none;
         }
+
+
         &__content {
             position: relative;
             overflow: hidden;
+            height: 470px;
+            @include mQ(630px) {
+                height: auto;
+            }
             img {
                 width: 100%;
-                object-fit: contain;
+                object-fit: cover;
+                height: 100%;
             }
 
             #{$self}__rate {
@@ -193,24 +200,16 @@
                 }
             }
 
-            &.active {
-                #{$self}__actions {
-                    display: block;
-                }
-                #{$self}__action a{
-                    animation: entry .3s;
-                    animation-fill-mode: forwards;
-                }
-                #{$self}__action:nth-child(2) a {
-                    animation-delay: .1s;
-                }
-                #{$self}__action:nth-child(3) a {
-                    animation-delay: .2s;
-                }
-                 #{$self}__action:nth-child(4) a {
-                    animation-delay: .3s;
+            &:hover {
+                @include movieActive($self);
+
+                @media (hover: none) {
+                    #{$self}__actions {
+                        display: none;
+                    }
                 }
             }
+
             #{$self}__actions {
                 position: absolute;
                 top: 0;
@@ -297,6 +296,11 @@
                 &:nth-child(3) a { background-color: #00bfdd;}
                 &:nth-child(4) a { background-color: #7874cf;}
 
+                &:hover:nth-child(1) span { color: #e64c66;}
+                &:hover:nth-child(2) span { color: #ffab00;}
+                &:hover:nth-child(3) span { color: #00bfdd;}
+                &:hover:nth-child(4) span { color: #7874cf;}
+
                 a {
                     display: block;
                     width: 20px;
@@ -306,14 +310,9 @@
                     position: relative;
                     left: -50px;
                 }
-                &:hover {
-                    span {
-                        width: 160px;
-                    }
-                }
+
+
                 span {
-                    width: 0;
-                    overflow: hidden;
                     color: #fff;
                     transition: .3s all;
                     white-space: nowrap;
@@ -322,9 +321,6 @@
 
                     @include mQ(1520px) {
                         font-size: 11px;
-                    }
-                    @include mQ(1199px) {
-                        width: 160px;
                     }
                 }
 
@@ -339,7 +335,7 @@
 
             }
 
-            &.active {
+            &:hover{
 
                 &::after {
                     content: '';
@@ -350,10 +346,33 @@
                     height: 100%;
                     background-color: rgba(0,0,0,.7);
                 }
+
+                @media (hover: none) {
+                    &::after{
+                        content: none;
+                    }
+                }
             }
 
-        }
 
+
+
+
+        }
+        &.active {
+            @include movieActive($self);
+        }
+        &.active .movie__content  {
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,.7);
+                }
+             }
         &__description {
             display: flex;
             justify-content: space-between;
@@ -423,3 +442,4 @@
             left: 0
         }
     }
+

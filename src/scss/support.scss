@@ -57,13 +57,7 @@
     }
 
     .closeForm {
-        position: absolute;
-        right: 30px;
-        top: 30px;
-        width: 40px;
-        height: 40px;
-        transition: all .3s;
-        cursor: pointer;
+        @include closeContainer(40px, 30px, 30px);
 
         @include mQ(699px) {
             width: 30px;
@@ -73,10 +67,10 @@
         }
 
         &:before {
-            @include closeBtn(lighten($textColor,30),45)
+            @include closeBtn(4px, lighten($textColor,30),45)
         }
         &:after {
-            @include closeBtn(lighten($textColor,30),-45)
+            @include closeBtn(4px, lighten($textColor,30),-45)
         }
 
         &:hover:before,&:hover:after {

@@ -43,14 +43,42 @@
 }
 
 
-@mixin closeBtn($color, $rotate) {
+@mixin closeBtn($thin, $color, $rotate) {
     content: '';
     position: absolute;
     left: 50%;
-    width: 4px;
+    width: $thin;
     height: 100%;
     background-color: $color;
     border-radius: 10px;
     z-index: 3;
     transform: translateX(-50%) rotateZ(#{$rotate}deg)
+}
+
+@mixin closeContainer($size, $top, $right) {
+    position: absolute;
+    right: $right;
+    top: $top;
+    width: $size;
+    height: $size;
+    transition: all .3s;
+    cursor: pointer;
+}
+@mixin movieActive($self) {
+    #{$self}__actions {
+    display: block;
+    }
+    #{$self}__action a{
+        animation: entry .3s;
+        animation-fill-mode: forwards;
+    }
+    #{$self}__action:nth-child(2) a {
+        animation-delay: .1s;
+    }
+    #{$self}__action:nth-child(3) a {
+        animation-delay: .2s;
+    }
+        #{$self}__action:nth-child(4) a {
+        animation-delay: .3s;
+    }
 }

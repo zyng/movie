@@ -22,11 +22,11 @@ class Header extends Component {
             <>
                 {this.state.messagePopUp && <ModalHelp closeModal={this.closeModal} />}
                 <header className='header'>
-                    <a href="/" className="header__logo">
+                    <Link to="/" className="header__logo">
                         <div className="header__logo--red"></div>
                         <div className="header__logo--yellow"></div>
                         <div className="header__logo--green"></div>
-                    </a>
+                    </Link>
 
                     <div className="header__title">
                         <i className="fa fa-film"></i>

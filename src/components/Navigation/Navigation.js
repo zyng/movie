@@ -12,49 +12,6 @@ class Navigation extends Component {
         isLoading: false,
     }
 
-    browseNavLinks = [
-        {
-            path: '/'
-        },
-        {
-            path: '/popular'
-        },
-        {
-            path: '/top_rated'
-        },
-        {
-            path: '/now_playing'
-        },
-        {
-            path: '/upcoming'
-        },
-        {
-            path: '/watched'
-        },
-        {
-            path: '/must-watch'
-        },
-        {
-            path: '/favourite'
-        },
-        {
-            path: '/similar'
-        },
-        {
-            path: '/similar/:match'
-        },
-        {
-            path: '/add-movie',
-            browseInActive: true
-        },
-        {
-            path: '/maybe-later'
-        },
-        {
-            path: '/history',
-            browseInActive: true
-        }
-    ]
     componentDidMount() {
         this.menuWidth = document.querySelector('.menu').offsetWidth;
 
@@ -101,16 +58,16 @@ class Navigation extends Component {
                 </div>
                 <nav className="menu__movie-search">
 
-                    {this.browseNavLinks.map((link, index) => (
-                        <Route
-                            key={index}
-                            path={link.path}
-                            exact
-                            render={() => (
-                                <Link to='/' className={`${link.browseInActive ? '' : 'active'}`}><i className="fa fa-search"></i>Browse</Link>
-                            )}
-                        />
-                    ))}
+                    <Route path='/' render={(props) => {
+                        if (props.location.pathname !== '/history') {
+                            return (
+                                <Link to='/' className='active'><i className="fa fa-search"></i>Browse</Link>
+                            )
+                        } else
+                            return (
+                                <Link to='/'><i className="fa fa-search"></i>Browse</Link>
+                            )
+                    }} />
 
                     <NavLink to='/history' exact activeClassName="active"><i className="fa fa-history"></i>History</NavLink>
                 </nav>

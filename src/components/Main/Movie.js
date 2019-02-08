@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 import Loading from "../Loading/Loading";
+import Notification from "../Notification/Notification";
 import * as movieApi from "../helpers/movieApi";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Movies from './Movies';
 
 class Movie extends Component {
 
@@ -13,6 +15,8 @@ class Movie extends Component {
         addedToWatched: false,
         addedToMaybeLater: false,
         rating: this.props.userRating,
+        error: false,
+        errorMessage: '',
     }
 
     static defaultProps = {
@@ -58,6 +62,19 @@ class Movie extends Component {
         }
     ]
 
+    saveMovie = (collection, id, added, history) => {
+        this.setState({ savingProccess: true });
+        movieApi.addToMovieCollection(collection, id)
+            .then(() => this.setState({ savingProccess: false, [added]: true }))
+            .then(() => movieApi.saveHistory(history))
+            .catch((response) => {
+                if (response.status === 403)
+                    this.setState({ savingProccess: false, error: true, errorMessage: 'Movie is already added to your data base.', [added]: true })
+                else
+                    this.setState({ savingProccess: false, error: true, errorMessage: 'Ops something wrong... try again later.' });
+            })
+    }
+
     addToCollection = (e, type, id, title) => {
         e.preventDefault();
 
@@ -69,38 +86,26 @@ class Movie extends Component {
         switch (type) {
             case "must-watch":
                 if (!this.state.addedToMustWatch) {
-                    this.setState({ savingProccess: true });
-                    movieApi.addToMovieCollection('must-watch', id)
-                        .then(() => this.setState({ savingProccess: false, addedToMustWatch: true }))
-                        .then(() => movieApi.saveHistory(history))
+                    this.saveMovie('must-watch', id, 'addedToMustWatch', history)
                 }
                 break;
             case "favourite":
                 if (!this.state.addedToFavourite) {
-                    this.setState({ savingProccess: true });
-                    movieApi.addToMovieCollection('favourite', id)
-                        .then(() => this.setState({ savingProccess: false, addedToFavourite: true }))
-                        .then(() => movieApi.saveHistory(history))
+                    this.saveMovie('favourite', id, 'addedToFavourite', history)
                 }
                 break;
             case "watched":
                 if (!this.state.addedToWatched) {
-                    this.setState({ savingProccess: true });
-                    movieApi.addToMovieCollection('watched', id)
-                        .then(() => this.setState({ savingProccess: false, addedToWatched: true }))
-                        .then(() => movieApi.saveHistory(history))
+                    this.saveMovie('watched', id, 'addedToWatched', history)
                 }
                 break;
             case "maybe-later":
                 if (!this.state.addedToMaybeLater) {
-                    this.setState({ savingProccess: true });
-                    movieApi.addToMovieCollection('maybe-later', id)
-                        .then(() => this.setState({ savingProccess: false, addedToMaybeLater: true }))
-                        .then(() => movieApi.saveHistory(history))
+                    this.saveMovie('maybe-later', id, 'addedToMaybeLater', history)
                 }
                 break;
             default:
-                console.log("something wrong");
+                this.setState({ savingProccess: false, error: true, errorMessage: 'Ops something wrong... try again later.' });
         }
     }
 
@@ -118,98 +123,97 @@ class Movie extends Component {
             .then(() => this.setState({ savingProccess: false }))
     }
 
-    toggleMovie(e) {
-        const movie = e.target.parentNode;
-
-        if (movie.classList.contains('active'))
-            movie.classList.remove('active')
-        else
-            movie.classList.add('active')
-    }
-
-    toggleMovieOnHover(e) {
-        if ("ontouchstart" in document.documentElement)
-            return false
-        else
-            this.toggleMovie(e);
-    }
     toggleMovieOnClick(e) {
-        if ("ontouchstart" in document.documentElement)
-            this.toggleMovie(e);
-        else
-            return false
+        const activeMovie = e.target.closest('.movie')
+        const movies = [...document.getElementsByClassName('movie')]
+
+        if (!activeMovie.classList.contains('active')) {
+            movies.forEach(movie => { movie.classList.remove('active') })
+            activeMovie.classList.add('active')
+        }
+        else {
+            activeMovie.classList.remove('active')
+        }
+    }
+
+    hideNotification = () => {
+        this.setState({ error: false });
+
+        if (this.notification)
+            clearTimeout(this.notification)
     }
 
     render() {
         const { id, title, poster, rating, homepage, genres, similarResult, watched, maybeLater, favourite, mustWatch, actualPage, removeMovieFromCollection, showMovie } = this.props;
-        const { savingProccess, addedToMustWatch, addedToFavourite, addedToWatched, addedToMaybeLater } = this.state;
+        const { savingProccess, addedToMustWatch, addedToFavourite, addedToWatched, addedToMaybeLater, error } = this.state;
         const genresFormatted = Array.isArray(genres) ? genres.join(`, `) : genres;
 
         return (
+            <>
+                {error && <Notification error children={this.state.errorMessage} hide={this.notification = setTimeout(this.hideNotification, 5000)} close={this.hideNotification} />}
+                <div className={`movie ${showMovie ? '' : 'hide'}`}>
+                    <div className="movie__content" onClick={(e) => this.toggleMovieOnClick(e)} >
+                        <Loading isActive={savingProccess} />
+                        <img src={`https://image.tmdb.org/t/p/original${poster}`} alt="" />
+                        <div className="movie__actions">
 
-            <div className={`movie ${showMovie ? '' : 'hide'}`}>
+                            <Switch>
+                                {this.collectionRoutes.map((route, index) => (
+                                    <Route
+                                        key={index}
+                                        path={route.path}
+                                        exact
+                                        strict
+                                        render={() => (
+                                            <div onClick={() => removeMovieFromCollection(actualPage, id, title)} className="movie__remove"><span className="fa fa-trash"></span></div>
+                                        )}
 
-                <div className="movie__content" onClick={(e) => this.toggleMovieOnClick(e)} onMouseEnter={(e) => this.toggleMovieOnHover(e)} onMouseLeave={(e) => this.toggleMovieOnHover(e)}>
-                    <Loading isActive={savingProccess} />
-                    <img src={`https://image.tmdb.org/t/p/original${poster}`} alt="" />
-                    <div className="movie__actions">
+                                    />
+                                ))}
+                                {this.browseMoviesRoute.map((route, index) => (
+                                    <Route
+                                        key={index}
+                                        path={route.path}
+                                        exact
+                                        strict
+                                        render={() => (
+                                            <div className="movie__add">
+                                                <div onClick={(e) => this.addToCollection(e, "must-watch", id, title)} className={`movie__action ${addedToMustWatch ? 'active' : ''}`}><a href="/" > </a><span>{addedToMustWatch ? "Added to Must Watch" : mustWatch}</span></div>
+                                                <div onClick={(e) => this.addToCollection(e, "favourite", id, title)} className={`movie__action ${addedToFavourite ? 'active' : ''}`}><a href="/" > </a><span>{addedToFavourite ? "Added to Favourite" : favourite}</span></div>
+                                                <div onClick={(e) => this.addToCollection(e, "watched", id, title)} className={`movie__action ${addedToWatched ? 'active' : ''}`}><a href="/" > </a><span>{addedToWatched ? "Added to Watched" : watched}</span></div>
+                                                <div onClick={(e) => this.addToCollection(e, "maybe-later", id, title)} className={`movie__action ${addedToMaybeLater ? 'active' : ''}`}><a href="/" > </a><span>{addedToMaybeLater ? "Added to Maybe Later" : maybeLater}</span></div>
+                                            </div>
+                                        )}
+                                    />
+                                ))}
+                            </Switch>
 
-                        <Switch>
-                            {this.collectionRoutes.map((route, index) => (
-                                <Route
-                                    key={index}
-                                    path={route.path}
-                                    exact
-                                    strict
-                                    render={() => (
-                                        <div onClick={() => removeMovieFromCollection(actualPage, id, title)} className="movie__remove"><span className="fa fa-trash"></span></div>
-                                    )}
-
+                            {homepage && <a href={homepage} target="_blank" className='movie__btn movie__btn--goto'>Check Movie</a>}
+                            {similarResult > 0 && <Link to={`/similar/${id}`} className='movie__btn movie__btn--similar'>Show Similar</Link>}
+                            <div className="movie__rate">
+                                <span>Your rating:</span>
+                                <StarRatings
+                                    rating={this.state.rating}
+                                    starDimension="20px"
+                                    starSpacing="3px"
+                                    numberOfStars={10}
+                                    starHoverColor='#15a4fa'
+                                    starRatedColor='#ffab00'
+                                    changeRating={this.changeRating.bind(this, id, actualPage)}
+                                    name='rating'
                                 />
-                            ))}
-                            {this.browseMoviesRoute.map((route, index) => (
-                                <Route
-                                    key={index}
-                                    path={route.path}
-                                    exact
-                                    strict
-                                    render={() => (
-                                        <div className="movie__add">
-                                            <div onClick={(e) => this.addToCollection(e, "must-watch", id, title)} className={`movie__action ${addedToMustWatch ? 'active' : ''}`}><a href="/" > </a><span>{addedToMustWatch ? "Added to Must Watch" : mustWatch}</span></div>
-                                            <div onClick={(e) => this.addToCollection(e, "favourite", id, title)} className={`movie__action ${addedToFavourite ? 'active' : ''}`}><a href="/" > </a><span>{addedToFavourite ? "Added to Favourite" : favourite}</span></div>
-                                            <div onClick={(e) => this.addToCollection(e, "watched", id, title)} className={`movie__action ${addedToWatched ? 'active' : ''}`}><a href="/" > </a><span>{addedToWatched ? "Added to Watched" : watched}</span></div>
-                                            <div onClick={(e) => this.addToCollection(e, "maybe-later", id, title)} className={`movie__action ${addedToMaybeLater ? 'active' : ''}`}><a href="/" > </a><span>{addedToMaybeLater ? "Added to Maybe Later" : maybeLater}</span></div>
-                                        </div>
-                                    )}
-                                />
-                            ))}
-                        </Switch>
-
-                        {homepage && <a href={homepage} target="_blank" className='movie__btn movie__btn--goto'>Check Movie</a>}
-                        {similarResult > 0 && <Link to={`/similar/${id}`} className='movie__btn movie__btn--similar'>Show Similar</Link>}
-                        <div className="movie__rate">
-                            <span>Your rating:</span>
-                            <StarRatings
-                                rating={this.state.rating}
-                                starDimension="20px"
-                                starSpacing="3px"
-                                numberOfStars={10}
-                                starHoverColor='#15a4fa'
-                                starRatedColor='#ffab00'
-                                changeRating={this.changeRating.bind(this, id, actualPage)}
-                                name='rating'
-                            />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="movie__description">
-                    <div className="movie__title-category">
-                        <span className="movie__title">{title}</span>
-                        <span className="movie__category">{genresFormatted}</span>
+                    <div className="movie__description">
+                        <div className="movie__title-category">
+                            <span className="movie__title">{title}</span>
+                            <span className="movie__category">{genresFormatted}</span>
+                        </div>
+                        <div className="movie__rating">{rating}</div>
                     </div>
-                    <div className="movie__rating">{rating}</div>
-                </div>
-            </div >
+                </div >
+            </>
         );
     }
 

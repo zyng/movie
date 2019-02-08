@@ -3,6 +3,7 @@ import Movie from './Movie';
 import $ from 'jquery';
 import * as movieApi from "../helpers/movieApi";
 import Loading from "../Loading/Loading";
+import Notification from "../Notification/Notification";
 
 class Movies extends Component {
     state = {
@@ -14,8 +15,11 @@ class Movies extends Component {
         readMoreMovies: false,
         isLoading: false,
         isUserList: false,
+        isInputSearch: false,
+        error: false,
+        errorMessage: '',
     }
-
+    movie = React.createRef();
     componentDidMount() {
         $("html, body").animate({ scrollTop: 0 }, 400);
         const page = this.props.match.params.id
@@ -45,7 +49,7 @@ class Movies extends Component {
 
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
 
-                if (!this.state.isUserList && !this.state.readMoreMovies) {
+                if (!this.state.isUserList && !this.state.isInputSearch && !this.state.readMoreMovies) {
                     const nextPage = this.state.page + 1;
                     this.setState({
                         action: "load",
@@ -71,7 +75,6 @@ class Movies extends Component {
         } else {
             promiseMovies = movieApi.getAllMovies("popular", 1);
         }
-
 
         promiseMovies.then(data => {
             const movies = data.results || data.items;
@@ -140,6 +143,13 @@ class Movies extends Component {
                         Promise.all(result.map(movie => fetch(
                             `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
                         )))
+                            .catch((response) => {
+                                console.log(response);
+
+                                if (Response.status === 429) {
+                                    this.setState({ error: true, errorMessage: "Too many Request... Something could go wrong. Try again later." });
+                                }
+                            })
                             .then(resp => Promise.all(resp.map(r => r.json())))
                             .then(result => {
 
@@ -170,8 +180,10 @@ class Movies extends Component {
                                 }
                             })
                     })
-                    .catch(error => console.log(error))
+
         })
+
+
 
 
     }
@@ -192,7 +204,7 @@ class Movies extends Component {
 
     handleInput = (e) => {
         const inputSearchMovie = e.target.value;
-        const inputFormatted = inputSearchMovie.replace(/ /g, '+');
+
 
         if (this.state.isUserList) {
             const howToDisplayMovies = this.state.movies.map(movie => {
@@ -209,12 +221,21 @@ class Movies extends Component {
             this.setState({ movies: howToDisplayMovies });
 
 
-        } else {
-            this.loadMovies("", 1, "", inputFormatted)
-
         }
     }
+    handleInputSubmit = (e) => {
+        e.preventDefault();
 
+        const form = e.target;
+        const input = form.querySelector('input');
+
+        const inputSearchMovie = input.value;
+        const inputFormatted = inputSearchMovie.replace(/ /g, '+');
+
+        this.setState({ isInputSearch: true });
+        this.loadMovies('', 1, '', inputFormatted);
+        input.value = '';
+    }
 
     removeMovie = (collection, id, title) => {
         const history = {
@@ -238,6 +259,14 @@ class Movies extends Component {
             .then(() => movieApi.saveHistory(history))
     }
 
+    hideNotification = () => {
+        this.setState({ error: false });
+
+        if (this.notification)
+            clearTimeout(this.notification)
+    }
+
+
     render() {
         const movies = this.state.movies.map(movie => {
             if (movie.poster_path && movie.title && movie.vote_average) {
@@ -254,14 +283,19 @@ class Movies extends Component {
                     removeMovieFromCollection={this.removeMovie}
                     userRating={movie.user_rating}
                     showMovie={movie.display}
+
+                    ref={this.movie}
                 />)
             }
         })
-        return (
 
-            <div className="movies" >
-                {(this.state.isLoading && <Loading isActive page />) || (movies.length > 0 ? movies : "No movies in collection.")}
-            </div>
+        return (
+            <>
+                {this.state.error && <Notification error children={this.state.errorMessage} hide={this.notification = setTimeout(this.hideNotification, 5000)} close={this.hideNotification} />}
+                <div className="movies" >
+                    {(this.state.isLoading && <Loading isActive page />) || (movies.length > 0 ? movies : "No movies in collection.")}
+                </div>
+            </>
         )
 
     }

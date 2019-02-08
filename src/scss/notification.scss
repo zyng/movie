@@ -1,0 +1,41 @@
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    padding: 30px;
+    z-index: 3;
+    border-radius: 10px;
+
+    @include mQ(630px) {
+        right: 10px;
+    }
+
+    &.error {
+        background-color: rgba( #E63946, .7 );
+        @include mQ(630px) {
+            background-color: rgba( #E63946, .9 );
+        }
+    }
+    &.success {
+        background-color: rgba( #04E824, .7 );
+        @include mQ(630px) {
+            background-color: rgba( #04E824, .9 );
+        }
+    }
+
+    .notification-content {
+        color: #ffffff;
+        line-height: 20px;
+    }
+
+    .close {
+        @include closeContainer(20px, 10px, 10px);
+
+        &:before {
+            @include closeBtn(2px, #fff,45)
+        }
+        &:after {
+            @include closeBtn(2px, #fff,-45)
+        }
+    }
+}
