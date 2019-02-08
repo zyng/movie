@@ -73,10 +73,10 @@
         }
 
         &:before {
-            @include closeBtn(lighten($textColor,30),45,left)
+            @include closeBtn(lighten($textColor,30),45)
         }
         &:after {
-            @include closeBtn(lighten($textColor,30),-45,right)
+            @include closeBtn(lighten($textColor,30),-45)
         }
 
         &:hover:before,&:hover:after {

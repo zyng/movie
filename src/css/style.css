@@ -422,13 +422,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 @media screen and (max-width: 699px) { .form-section .closeForm { width: 30px; height: 30px; top: 5px; right: 5px; } }
 
-.form-section .closeForm:before { content: ''; position: absolute; left: 0; width: 4px; height: 100%; background-color: #d1d4dd; border-radius: 10px; z-index: 3; -webkit-transform: rotateZ(45deg); -ms-transform: rotate(45deg); transform: rotateZ(45deg); }
+.form-section .closeForm:before { content: ''; position: absolute; left: 50%; width: 4px; height: 100%; background-color: #d1d4dd; border-radius: 10px; z-index: 3; -webkit-transform: translateX(-50%) rotateZ(45deg); -ms-transform: translateX(-50%) rotate(45deg); transform: translateX(-50%) rotateZ(45deg); }
 
-.form-section .closeForm:before else { right: 0; }
-
-.form-section .closeForm:after { content: ''; position: absolute; width: 4px; height: 100%; background-color: #d1d4dd; border-radius: 10px; z-index: 3; -webkit-transform: rotateZ(-45deg); -ms-transform: rotate(-45deg); transform: rotateZ(-45deg); }
-
-.form-section .closeForm:after else { right: 0; }
+.form-section .closeForm:after { content: ''; position: absolute; left: 50%; width: 4px; height: 100%; background-color: #d1d4dd; border-radius: 10px; z-index: 3; -webkit-transform: translateX(-50%) rotateZ(-45deg); -ms-transform: translateX(-50%) rotate(-45deg); transform: translateX(-50%) rotateZ(-45deg); }
 
 .form-section .closeForm:hover:before, .form-section .closeForm:hover:after { background-color: #78829d; }
 

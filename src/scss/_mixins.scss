@@ -43,18 +43,14 @@
 }
 
 
-@mixin closeBtn($color, $rotate, $side ) {
+@mixin closeBtn($color, $rotate) {
     content: '';
     position: absolute;
-    @if $side == 'left' {
-        left: 0;
-    } else {
-        right: 0;
-    }
+    left: 50%;
     width: 4px;
     height: 100%;
     background-color: $color;
     border-radius: 10px;
     z-index: 3;
-    transform: rotateZ(#{$rotate}deg)
+    transform: translateX(-50%) rotateZ(#{$rotate}deg)
 }

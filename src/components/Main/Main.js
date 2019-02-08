@@ -79,6 +79,7 @@ class MainContent extends Component {
                             <Route
                                 key={index}
                                 path={route.path}
+                                exact
                                 component={(props) => <Movies {...props} ref={this.movies} />}
                             />
                         ))}
