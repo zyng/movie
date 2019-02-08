@@ -41,7 +41,7 @@ class MainContent extends Component {
                 <>
 
                     <header className="main__header">
-                        <div className="main__title">{this.state.type === "similar" ? 'Similar' : 'Browse Available'} Moviess</div>
+                        <div className="main__title">{this.state.type === "similar" ? 'Similar' : 'Browse Available'} Movies</div>
                         <div className="main__actions-bar">
                             <ul className="main__filters">
                                 <li onClick={() => this.changeTypeMovies('popular')} >
