@@ -3,7 +3,7 @@ import Movies from './Movies';
 import HistoryBrowse from '../History/HistoryBrowse';
 import SomethingWrong from '../Errors/SomethingWrong';
 
-import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 
 
 class MainContent extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import avatar from '../../img/avatar-01.png';
 import ModalHelp from '../Support/ModalHelp';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
 
@@ -33,7 +33,7 @@ class Header extends Component {
                         <span>MyMovieApp</span>
                     </div>
                     <nav className="header__nav">
-                        <a href="#" className="hide-mobile" onClick={(e) => this.popModal(e)} >Help Center</a>
+                        <button type="button" className="hide-mobile" onClick={(e) => this.popModal(e)} >Help Center</button>
                         <div className="profile">
                             <div className="profile__logo"><img src={avatar} alt="user avatar" /></div>
                             <div className="profile__name">Joe Dave</div>
@@ -43,7 +43,7 @@ class Header extends Component {
                                     <Link to='/logout'>Log out <span className="fa fa-sign-out" aria-hidden="true"></span></Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="show-mobile" onClick={(e) => this.popModal(e)}>Help Center <span className="fa fa-info" aria-hidden="true"></span></a>
+                                    <button type="button" className="show-mobile" onClick={(e) => this.popModal(e)}>Help Center <span className="fa fa-info" aria-hidden="true"></span></button>
                                 </li>
                             </ul>
 

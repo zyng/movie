@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, NavLink, Link, Route } from "react-router-dom";
+import { NavLink, Link, Route } from "react-router-dom";
 import History from '../History/History';
 import * as movieApi from "../helpers/movieApi";
 import Loading from "../Loading/Loading";

@@ -67,12 +67,12 @@
         a {
             text-decoration: none;
         }
-        & > a {
+        & > button {
+            @include resetBtnStyle;
             color: $textColor;
             position: relative;
-            @include mQ(1160px) {
-                margin-right: 25px;
-            }
+            margin-right: 25px;
+            cursor: pointer;
 
             &:hover {
                 &::after {
@@ -159,7 +159,12 @@
                         transform: scaleX(-1)
                    }
 
-                   a {
+                   button {
+                       @include resetBtnStyle;
+                       color: $textColor;
+                       cursor: pointer;
+                   }
+                   a, button {
                        transition: .3s all;
                        &:hover {
                            color: #fff;

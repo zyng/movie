@@ -82,3 +82,9 @@
         animation-delay: .3s;
     }
 }
+
+@mixin resetBtnStyle {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}

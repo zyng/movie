@@ -45,11 +45,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .header__nav a { text-decoration: none; }
 
-.header__nav > a { color: #78829d; position: relative; }
+.header__nav > button { outline: none; border: none; background-color: transparent; color: #78829d; position: relative; margin-right: 25px; cursor: pointer; }
 
-@media screen and (max-width: 1160px) { .header__nav > a { margin-right: 25px; } }
-
-.header__nav > a:hover::after { content: ''; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); right: -15px; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(25, 32, 46, 0.7); }
+.header__nav > button:hover::after { content: ''; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); right: -15px; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(25, 32, 46, 0.7); }
 
 .header__nav .profile { padding: 0 30px; background-color: #15a4fa; height: 45px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: relative; }
 
@@ -75,9 +73,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .header__nav .profile .profile__menu li span { margin-left: 25px; -webkit-transform: scaleX(-1); -ms-transform: scaleX(-1); transform: scaleX(-1); }
 
-.header__nav .profile .profile__menu li a { -webkit-transition: .3s all; -o-transition: .3s all; transition: .3s all; }
+.header__nav .profile .profile__menu li button { outline: none; border: none; background-color: transparent; color: #78829d; cursor: pointer; }
 
-.header__nav .profile .profile__menu li a:hover { color: #fff; }
+.header__nav .profile .profile__menu li a, .header__nav .profile .profile__menu li button { -webkit-transition: .3s all; -o-transition: .3s all; transition: .3s all; }
+
+.header__nav .profile .profile__menu li a:hover, .header__nav .profile .profile__menu li button:hover { color: #fff; }
 
 .header__nav .profile .profile__menu li:not(:last-child) { margin-bottom: 10px; }
 

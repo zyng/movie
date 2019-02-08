@@ -19,7 +19,7 @@ class Movies extends Component {
         error: false,
         errorMessage: '',
     }
-    movie = React.createRef();
+
     componentDidMount() {
         $("html, body").animate({ scrollTop: 0 }, 400);
         const page = this.props.match.params.id
@@ -286,7 +286,7 @@ class Movies extends Component {
                     userRating={movie.user_rating}
                     showMovie={movie.display}
 
-                    ref={this.movie}
+
                 />)
             }
         })

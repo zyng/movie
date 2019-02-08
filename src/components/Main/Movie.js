@@ -3,8 +3,8 @@ import StarRatings from 'react-star-ratings';
 import Loading from "../Loading/Loading";
 import Notification from "../Notification/Notification";
 import * as movieApi from "../helpers/movieApi";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Movies from './Movies';
+import { Route, Switch, Link } from "react-router-dom";
+
 
 class Movie extends Component {
 
@@ -196,7 +196,7 @@ class Movie extends Component {
                                 ))}
                             </Switch>
 
-                            {homepage && <a href={homepage} target="_blank" className='movie__btn movie__btn--goto'>Check Movie</a>}
+                            {homepage && <a href={homepage} target="_blank" rel="noopener noreferrer" className='movie__btn movie__btn--goto'>Check Movie</a>}
                             {similarResult > 0 && <Link to={`/similar/${id}`} className='movie__btn movie__btn--similar'>Show Similar</Link>}
                             <div className="movie__rate">
                                 <span>Your rating:</span>
