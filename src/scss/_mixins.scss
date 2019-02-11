@@ -1,5 +1,5 @@
 @mixin mQ($arg) {
-    @media screen and (max-width: $arg) {
+    @media only screen and (max-width: $arg) {
         @content;
     }
 }
@@ -87,4 +87,25 @@
     outline: none;
     border: none;
     background-color: transparent;
+}
+
+@mixin menuActive {
+    width: 320px;
+
+    .menu__history .history__notification .notification__description {
+        width: 100%;
+        height: auto;
+    }
+    .menu__new-movie a.addMovie span {
+        display: inline;
+    }
+    .menu__new-movie a.addMovie {
+        flex-direction: row
+    }
+    .menu__new-movie a.addMovie i {
+        margin-right: 30px;
+    }
+    .hideMenu span {
+        transform: scaleX(1);
+    }
 }

@@ -71,7 +71,7 @@ class Navigation extends Component {
                     <NavLink to='/watched' activeClassName="active"><span className="category-icon"></span><span className="category-name">Watched titles</span></NavLink>
                     <NavLink to='/maybe-later' activeClassName="active"><span className="category-icon"></span><span className="category-name">Maybe later titles</span></NavLink>
                 </div>
-                <Media query="(max-height: 800px)">
+                <Media query="(max-height: 699px), (max-width: 1279px)">
                     {matches => matches ? (
                         <button className="hideMenu" onClick={this.toggleMenu}><span className="fa fa-arrow-left" aria-hidden="true"></span></button>
                     )
@@ -82,6 +82,7 @@ class Navigation extends Component {
                         )
 
                     }
+
                 </Media>
 
             </aside >

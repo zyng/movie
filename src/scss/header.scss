@@ -144,7 +144,7 @@
                 right: 0;
                 background-color: $headerBG;
                 width: 100%;
-                padding: 20px 32px;
+                padding: 20px 28px;
                 box-shadow: -5px 5px 20px 0 rgba(0,0,0,.5);
                 transition: opacity .3s;
                 @include mQ(630px) { width: 200px}
@@ -174,7 +174,9 @@
 
                 li:not(:last-child) {margin-bottom: 10px;}
                 .show-mobile {
-                    display: block;
+                    display: none;
+
+                    @include mQ(630px) { display: block}
                 }
             }
 

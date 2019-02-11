@@ -167,6 +167,10 @@
             display: flex;
             margin-bottom: 30px;
             font-weight: 300;
+            @include mQ(1399px) {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
 
             i {
                 margin-right: $contentMargin;
@@ -210,45 +214,11 @@
         width: $navWidthMid;
         overflow: hidden;
 
-        @media(hover: hover) {
-            width: 320px;
-
-            .menu__history .history__notification .notification__description {
-                width: 100%;
-                height: auto;
-            }
-            .menu__new-movie a.addMovie span {
-                display: inline;
-            }
-            .menu__new-movie a.addMovie {
-                flex-direction: row
-            }
-            .menu__new-movie a.addMovie i {
-                margin-right: 30px;
-            }
-            .hideMenu span {
-                transform: scaleX(1);
-            }
+        &:hover {
+            @include menuActive;
         }
         &.active {
-             width: 320px;
-
-            .menu__history .history__notification .notification__description {
-                width: 100%;
-                height: auto;
-            }
-            .menu__new-movie a.addMovie span {
-                display: inline;
-            }
-            .menu__new-movie a.addMovie {
-                flex-direction: row
-            }
-            .menu__new-movie a.addMovie i {
-                margin-right: 30px;
-            }
-            .hideMenu span {
-                transform: scaleX(1);
-            }
+             @include menuActive;
         }
     }
     @include mQ(630px) {
