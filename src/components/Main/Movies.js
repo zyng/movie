@@ -146,9 +146,7 @@ class Movies extends Component {
                             `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=ae60b48c0c9fb756e036cdeb7bc07360`
                         )))
                             .catch((response) => {
-                                console.log(response);
-
-                                if (Response.status === 429) {
+                                if (response.status === 429) {
                                     this.setState({ error: true, errorMessage: "Too many Request... Something could go wrong. Try again later." });
                                 }
                             })
@@ -184,10 +182,6 @@ class Movies extends Component {
                     })
 
         })
-
-
-
-
     }
 
     loadNewMovies = (type, page, id) => {
@@ -225,6 +219,7 @@ class Movies extends Component {
 
         }
     }
+
     handleInputSubmit = (e) => {
         e.preventDefault();
 

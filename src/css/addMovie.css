@@ -1,8 +1,0 @@
-.unexpected-error {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-20%);
-  -ms-transform: translateX(-20%);
-  transform: translateX(-20%);
-  font-size: 18px; }

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Loading = ({ isActive, page, history }) => {
     return (
         <div className={`loading__logo ${isActive ? "active" : ''} ${page ? "page" : ''} ${history ? 'history' : ''}`} >

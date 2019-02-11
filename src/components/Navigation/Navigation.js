@@ -29,7 +29,6 @@ class Navigation extends Component {
             return false
     }
 
-
     render() {
         const lastTwoHistory = this.state.historyList.slice(-2);
 

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Movies from './Movies';
 import HistoryBrowse from '../History/HistoryBrowse';
 import SomethingWrong from '../Errors/SomethingWrong';
-
 import { Route, NavLink, Switch } from "react-router-dom";
-
 
 class MainContent extends Component {
 
@@ -58,7 +56,6 @@ class MainContent extends Component {
                                 </li>
                             </ul>
 
-
                             <Route path='/' render={(props) => {
                                 if (props.location.pathname !== '/history') {
                                     return (
@@ -72,9 +69,6 @@ class MainContent extends Component {
                                     )
                                 } else return null;
                             }} />
-
-
-
                         </div>
                     </header>
                     <Switch>
