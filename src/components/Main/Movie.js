@@ -25,7 +25,41 @@ class Movie extends Component {
         watched: "Add to Watched",
         maybeLater: "Add to Maybe Later"
     }
+    collectionRoutes = [
+        {
+            path: '/must-watch'
+        },
+        {
+            path: '/favourite'
+        },
+        {
+            path: '/watched'
+        },
+        {
+            path: '/maybe-later'
+        },
+    ]
 
+    browseMoviesRoute = [
+        {
+            path: '/'
+        },
+        {
+            path: '/popular'
+        },
+        {
+            path: '/top_rated'
+        },
+        {
+            path: '/now_playing'
+        },
+        {
+            path: '/upcoming'
+        },
+        {
+            path: '/similar/:match'
+        }
+    ]
     saveMovie = (collection, id, added, history) => {
         this.setState({ savingProccess: true });
         movieApi.addToMovieCollection(collection, id)
